@@ -1,0 +1,26 @@
+✔ enhanced skips unusable final-auction tile (1.279147ms)
+✔ enhanced liquidates even two-letter words before final resolution (0.584781ms)
+✔ enhanced holds short early words with ample cash, but plays to refill low cash (0.30135ms)
+✔ enhanced chooses scoring value rather than raw word length (0.399696ms)
+✔ enhanced plays ready seven-letter word early (0.262311ms)
+✔ enhanced bids remain finite affordable integers and never mutate inputs (17.593683ms)
+✔ enhanced decisions are legal and do not consume source racks (1.112097ms)
+✔ 98-tile standard bag, no blanks (1.237705ms)
+✔ reward multiplier floors odd half points (0.198315ms)
+✔ starter and simulated bidding match rules (0.224504ms)
+✔ auction pricing, reserve and empty bidding (0.915725ms)
+✔ external winner cannot play its final tile; server bot can (0.960822ms)
+✔ external initial rack plays; server initial rack waits for a win (0.453466ms)
+✔ seeded games repeat exactly (7.329455ms)
+✔ greedy index preserves longest-first input tie order and multiplicity (0.229482ms)
+✔ unbid tiles discarded and countdown excludes open tile (0.432885ms)
+✔ server bots cannot cash initial rack without winning (0.353717ms)
+✔ tie outcomes are deterministic per seed and not fixed to first bidder (0.273268ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 325.220163

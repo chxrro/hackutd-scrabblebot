@@ -1,0 +1,39 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> hackutd-scrabblebot@0.1.0 test
+> node --import tsx --test src/*.test.ts
+
+✔ enhanced skips unusable final-auction tile (1.784608ms)
+✔ enhanced liquidates even two-letter words before final resolution (0.815585ms)
+✔ enhanced holds short early words with ample cash, but plays to refill low cash (0.417291ms)
+✔ enhanced chooses scoring value rather than raw word length (0.48391ms)
+✔ enhanced plays ready seven-letter word early (0.403451ms)
+✔ enhanced bids remain finite affordable integers and never mutate inputs (25.729402ms)
+✔ enhanced decisions are legal and do not consume source racks (0.493886ms)
+✔ 98-tile standard bag, no blanks (1.247818ms)
+✔ reward multiplier floors odd half points (0.280087ms)
+✔ starter and simulated bidding match rules (0.317233ms)
+✔ auction pricing, reserve and empty bidding (1.391853ms)
+✔ external winner cannot play its final tile; server bot can (1.007501ms)
+✔ external initial rack plays; server initial rack waits for a win (0.47662ms)
+✔ seeded games repeat exactly (10.338168ms)
+✔ greedy index preserves longest-first input tie order and multiplicity (0.389891ms)
+✔ unbid tiles discarded and countdown excludes open tile (0.500505ms)
+✔ server bots cannot cash initial rack without winning (0.458082ms)
+✔ tie outcomes are deterministic per seed and not fixed to first bidder (1.83282ms)
+✔ scoring follows integer server multiplier (1.25587ms)
+✔ counts repeated letters and never mutates rack (37.947611ms)
+✔ holds short words early, cashes out at deadline or low funds (0.499854ms)
+✔ plays seven-letter bonus without waiting (8.994497ms)
+✔ uses reward rather than blindly longest word at liquidation (0.346606ms)
+✔ bid is integer, nonnegative and never over balance; last tile skipped (116.266081ms)
+✔ first-price bids shaded and completion letters valued (2.005918ms)
+✔ dictionary search and bid fit well inside one-second auction (69.441819ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 940.420775

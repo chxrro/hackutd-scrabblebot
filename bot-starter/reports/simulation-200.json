@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-11-07T20:22:20.852Z",
+  "dictionaryWords": 172820,
+  "dictionaryPreparationMs": 299.892298,
+  "seedRange": [
+    10001,
+    10200
+  ],
+  "elapsedMs": 23845.534215,
+  "notes": [
+    "Offline deterministic proxy, not live-server results.",
+    "Every game has six participants, 100 starting balance and five hidden starting tiles.",
+    "External bots may repeatedly play during each open auction, never after final resolution.",
+    "Server bots play one longest word of length >=3 only after each win, including final resolution.",
+    "Baseline uses official face+2-if-unseen bids and instant longest playable word >=2.",
+    "Same initial deal/seed used for paired runs; later RNG paths can diverge as positive-bid counts change.",
+    "Ranks are score-based, shared ties; win-or-tie rates do not split ties.",
+    "Network latency, reconnects, live opponent adaptation and scheduler races are not modeled."
+  ],
+  "results": [
+    {
+      "auctionType": "Vickrey",
+      "scenario": "starters",
+      "games": 200,
+      "meanScore": 249.455,
+      "baselineMeanScore": 30.18,
+      "meanScoreGain": 219.275,
+      "winOrTieRate": 1,
+      "outrightWinRate": 1,
+      "baselineWinOrTieRate": 0.205,
+      "meanMargin": 224.255,
+      "meanRank": 1
+    },
+    {
+      "auctionType": "Vickrey",
+      "scenario": "mixed",
+      "games": 200,
+      "meanScore": 201.35,
+      "baselineMeanScore": 18.605,
+      "meanScoreGain": 182.745,
+      "winOrTieRate": 1,
+      "outrightWinRate": 1,
+      "baselineWinOrTieRate": 0,
+      "meanMargin": 151.98,
+      "meanRank": 1
+    },
+    {
+      "auctionType": "FirstPrice",
+      "scenario": "starters",
+      "games": 200,
+      "meanScore": 135.625,
+      "baselineMeanScore": 30.18,
+      "meanScoreGain": 105.445,
+      "winOrTieRate": 0.98,
+      "outrightWinRate": 0.98,
+      "baselineWinOrTieRate": 0.205,
+      "meanMargin": 97.16,
+      "meanRank": 1.075
+    },
+    {
+      "auctionType": "FirstPrice",
+      "scenario": "mixed",
+      "games": 200,
+      "meanScore": 99.6,
+      "baselineMeanScore": 24.22,
+      "meanScoreGain": 75.38,
+      "winOrTieRate": 0.74,
+      "outrightWinRate": 0.74,
+      "baselineWinOrTieRate": 0.005,
+      "meanMargin": 30.975,
+      "meanRank": 1.42
+    }
+  ],
+  "runtime": {
+    "bid": {
+      "calls": 54400,
+      "meanMs": 0.3791876031985208,
+      "p95Ms": 1.5180440000003728,
+      "p99Ms": 2.5325640000010026,
+      "maxMs": 60.10383599999841
+    },
+    "word": {
+      "calls": 58774,
+      "meanMs": 0.02061938847108954,
+      "p95Ms": 0.04211299999951734,
+      "p99Ms": 0.5515919999998005,
+      "maxMs": 8.015226999999982
+    }
+  }
+}

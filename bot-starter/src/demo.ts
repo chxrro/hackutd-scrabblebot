@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import { chooseWord, decideBid, prepareDictionary, wordReward } from './strategy.js';
+import { GreedyDictionary, rackOf, simulate } from './simulator.js';
+const words=fs.readFileSync(new URL('../../spacetimedb/wordlist.txt',import.meta.url),'utf8').split(/\r?\n/).map(x=>x.trim()).filter(x=>/^[A-Z]{2,}$/.test(x)).sort((a,b)=>b.length-a.length);
+prepareDictionary(words);
+console.log('HACKUTD SCRABBLEBOT | OFFLINE DEMO (no account or network)\n');
+console.log(`Dictionary: ${words.length.toLocaleString()} words. Decision engine: trie search + rack valuation, no LLM call.`);
+const rack=rackOf('LETTER');
+console.log(`\nRack LETTER, balance 100, 30 tiles left:`);
+for(const letter of ['S','A','Q']) console.log(`  Auction ${letter}: bid ${decideBid({letter,myBalance:100,myRack:rack,dictionary:words,bagRemaining:30})}`);
+const word=chooseWord({myRack:rackOf('LETTERS'),dictionary:words,myBalance:100,bagRemaining:30});
+console.log(`  Win S -> play ${word}, receive ${wordReward(word!)} points and currency.\n`);
+const game=simulate({seed:10042,kinds:['enhanced','Cheapskate','ValueBidder','Aggressive','Aggressive','ValueBidder'],dictionary:new GreedyDictionary(words),policy:{chooseWord,decideBid},auctionType:'Vickrey'});
+console.log(`Seeded ${game.rounds}-auction match against five built-in-style opponents:`);
+game.players.forEach((p,i)=>console.log(`  ${i===0?'YOUR BOT':p.kind}: ${p.score} points; words ${p.words.join(', ')||'(none)'}`));
+console.log('\nSimulated only. Live performance, network timing and tournament eligibility are not verified.');

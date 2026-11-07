@@ -1,0 +1,21 @@
+# Dependencies and generated build artifacts
+node_modules/
+dist/
+coverage/
+.tsbuildinfo
+*.tsbuildinfo
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.token-*
+*.pem
+*.key
+.DS_Store
+
+# Runtime logs; retain reviewed experiment evidence
+*.log
+!bot-starter/reports/*.log
+!experiments/learned-policy/reports-*.log
+!experiments/learned-policy/reports/*.log

@@ -1,0 +1,24 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> hackutd-scrabblebot@0.1.0 demo
+> node --import tsx src/demo.ts
+
+HACKUTD SCRABBLEBOT | OFFLINE DEMO (no account or network)
+
+Dictionary: 172,820 words. Decision engine: trie search + rack valuation, no LLM call.
+
+Rack LETTER, balance 100, 30 tiles left:
+  Auction S: bid 8
+  Auction A: bid 2
+  Auction Q: bid 6
+  Win S -> play LETTERS, receive 21 points and currency.
+
+Seeded 68-auction match against five built-in-style opponents:
+  YOUR BOT: 229 points; words COAXERS, BREVITY, WINZES, BLOWUP, JEERING, CLINE
+  Cheapskate: 0 points; words (none)
+  ValueBidder: 12 points; words DORY
+  Aggressive: 26 points; words VANG, MAN, TOE, OIL, TIT
+  Aggressive: 42 points; words UPRATE, OES, KOI, AIT, ARF, EON
+  ValueBidder: 7 points; words EGAL
+
+Simulated only. Live performance, network timing and tournament eligibility are not verified.
