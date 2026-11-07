@@ -44,10 +44,16 @@ The [robust arena](experiments/robust-arena/README.md) adds source-pinned rule p
 
 The [new results](experiments/robust-arena/RESULTS.md) include 5,376 games over 32 fresh deals. Against the stronger frontier league, the frozen learned policy wins outright in 30.7% of Vickrey games and 39.6% of first-price games. Those local results are much less reassuring than the earlier weak-opponent win rates and are not tournament forecasts. The 34-test robust suite and TypeScript check were independently repeated during integration. All baseline and archived experiment files remain unchanged.
 
+## Challenger and live local practice
+
+The [tough-league challenger](experiments/robust-arena/CHALLENGER-README.md) adds separate frozen coefficients for each auction type, trained and evaluated on disjoint deal ranges. Read its [results and regressions](experiments/robust-arena/CHALLENGER-RESULTS.md): first-price improves overall in the tested league, while aggregate Vickrey improvement remains uncertain and portfolio opponents expose regressions. The challenger remains experimental; the preserved baseline is still the practice default.
+
+Live local practice: see [practice/live-server](practice/live-server/README.md). This runs the real pinned SpacetimeDB module on loopback, with temporary in-memory state and six WebSocket bots. The package includes separate baseline, challenger, and production-adapter integration evidence. The tests use Vickrey rules and are not comparative tournament-strength evidence. There is no public hosted URL, and all completed test servers were stopped.
+
 ## Status and safety
 
-- No live account, team, credentials, tournament registration, or submission was created while preparing this project.
-- No live match or reconnect behavior has been validated. The simulator does not model every timing, networking, or opponent behavior.
+- No real competition account, team, credentials, tournament registration, or submission was created while preparing this project.
+- No hosted competition match or tournament registration has been validated. Local-server integration checks are documented separately in [`practice/live-server/`](practice/live-server/README.md). The offline simulator does not model every timing, networking, or opponent behavior.
 - Keep `.env` files, bot-token files, and credentials out of Git. Dependency directories and runtime outputs are ignored.
 - The live adapter automatically bids and submits words once configured. Follow its guide and verify current organizer requirements before connecting it.
 - This repository starts private. Confirm submission visibility requirements before making it public or sharing it.

@@ -1,0 +1,567 @@
+{
+  "operation": "add-only",
+  "source_directory": "/workspace/scratch/af8ac4a3fcab/scrabblebot-robust-delivery",
+  "destination_directory": "experiments/robust-arena",
+  "files": [
+    {
+      "path": "CHALLENGER-README.md",
+      "sha256": "3a6d2e5583abecf807e7b30f679855cb627c6b015d522564cee2ec1c4b6b1954",
+      "bytes": 4050
+    },
+    {
+      "path": "CHALLENGER-RESULTS.md",
+      "sha256": "baffdb26b9a9714672ff50e7ec892b88b7368eeea1fc7a6a958b19c6ddb51cbc",
+      "bytes": 6022
+    },
+    {
+      "path": "challenger-weights.json",
+      "sha256": "77a7c5b5c7fdef82a896d51c593e14d023ca12a5dd09463c90c084f568d30407",
+      "bytes": 8269
+    },
+    {
+      "path": "challenger_export.ts",
+      "sha256": "2aa85ffb7cef6c30209b9baf10f0ef8ff00ddd851b83acd9e17075809627655b",
+      "bytes": 1730
+    },
+    {
+      "path": "challenger_league.ts",
+      "sha256": "b194c14440766c14e635eefd129e8905fdf49d6ef40367a94f0b8508c11e9ecf",
+      "bytes": 2146
+    },
+    {
+      "path": "challenger_policy.ts",
+      "sha256": "af9d51055e39be6f23fc0d5dd68b7657de8eb09156b42e3437cd432b6655c4f3",
+      "bytes": 1703
+    },
+    {
+      "path": "challenger_train.ts",
+      "sha256": "ed9e81ac3a2685ebcc6f27f0808af7c90a66c24aa2853c343cb3a31b612b70d1",
+      "bytes": 10680
+    },
+    {
+      "path": "challenger_verify.ts",
+      "sha256": "e14999d4b5ad1938ce53b4dbc97537d8f917315f542ad0b2eb6bca2e3ff7ff1c",
+      "bytes": 3473
+    },
+    {
+      "path": "challenger_worker.ts",
+      "sha256": "c734c52401dfe4e2ceba6d93989cd9e69b50f61bed927f461a9a92060a646484",
+      "bytes": 2412
+    },
+    {
+      "path": "results/challenger-20261107/challenger-weights.json",
+      "sha256": "77a7c5b5c7fdef82a896d51c593e14d023ca12a5dd09463c90c084f568d30407",
+      "bytes": 8269
+    },
+    {
+      "path": "results/challenger-20261107/final-FirstPrice-89.json",
+      "sha256": "48f54171815a3cbc7d64845867a9a6a21c39ef6efc8e1201e79a7d05f6a7d9e4",
+      "bytes": 250194
+    },
+    {
+      "path": "results/challenger-20261107/final-FirstPrice-90.json",
+      "sha256": "7672c8e2fb8a12df2c09039268b3bfde7c80f53b53734945b3c87e3918316acf",
+      "bytes": 250939
+    },
+    {
+      "path": "results/challenger-20261107/final-FirstPrice-91.json",
+      "sha256": "75a9d73bbfc95c0c5fa80a2d36ee8e9a33ef869dfdfeabc082e4f28b7c6a2f76",
+      "bytes": 250534
+    },
+    {
+      "path": "results/challenger-20261107/final-FirstPrice-92.json",
+      "sha256": "26be3cf1375733c03676b91727498c2a85d80889da95a9cf4959230cacfeeec8",
+      "bytes": 254161
+    },
+    {
+      "path": "results/challenger-20261107/final-FirstPrice-93.json",
+      "sha256": "6d2f1bbe12e538a90e3818b4bbb87c16608bfc12aaf00b9ba24909b8085debcb",
+      "bytes": 257006
+    },
+    {
+      "path": "results/challenger-20261107/final-FirstPrice-94.json",
+      "sha256": "a4e90fa8540f427ae9e5aa003ce835b20210c36cf6394aa3b0dbd00b46601ced",
+      "bytes": 255746
+    },
+    {
+      "path": "results/challenger-20261107/final-Vickrey-83.json",
+      "sha256": "5aee45fe2777c4c1a0061a8d4e3626f817b1de8008806f5dc4b7a3c3b0775303",
+      "bytes": 248642
+    },
+    {
+      "path": "results/challenger-20261107/final-Vickrey-84.json",
+      "sha256": "0bab606e635b2a85e0cd4758b273e2747a8deb0fbde54200ddf18d35362871cb",
+      "bytes": 249408
+    },
+    {
+      "path": "results/challenger-20261107/final-Vickrey-85.json",
+      "sha256": "51b9d6b846e7e9832b113e7eba7769a0d80ca7a942acc9c5c4accb462656a5db",
+      "bytes": 248878
+    },
+    {
+      "path": "results/challenger-20261107/final-Vickrey-86.json",
+      "sha256": "f6b847c8d7c9a11b140f4c874b21bd5cb00ecef302074dbebd822317be0c1e36",
+      "bytes": 252536
+    },
+    {
+      "path": "results/challenger-20261107/final-Vickrey-87.json",
+      "sha256": "0d2afc4b93a6408ae00ffb307ab6677c1e3a094e4fff1d70700b050b57c8e27f",
+      "bytes": 255402
+    },
+    {
+      "path": "results/challenger-20261107/final-Vickrey-88.json",
+      "sha256": "2b0b2fbbfa8074b65e982989151b1e23a2152b2772779c2be0696e4c6151ed46",
+      "bytes": 254110
+    },
+    {
+      "path": "results/challenger-20261107/final-evaluation-lock.json",
+      "sha256": "849dac77a0e3ee55090bd7e176169fdf12b9ae14318669929802c55238605ce6",
+      "bytes": 2501
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-65.json",
+      "sha256": "f1a061262c77dc8c9ad181d10009649b748ce598bc19d410f6fdc80a227c2cad",
+      "bytes": 63474
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-66.json",
+      "sha256": "705afd0f9ae59bf4d0268292f4bc417d620120a1863f4ff7d247d627a0592882",
+      "bytes": 63770
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-67.json",
+      "sha256": "d1e866d7637df3ff183852d3468d082aca1799e588d107e6b122f95a2b915b9d",
+      "bytes": 63737
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-68.json",
+      "sha256": "17f11b656ccbbad7f6b5a5844a50fc090f2fed0f5b6d81d5ed92a39be686cf3c",
+      "bytes": 63772
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-69.json",
+      "sha256": "7c25dc22768a9d452acb30c914eca009fa604f04b6282cf5671a28919a8fe5a6",
+      "bytes": 63825
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-70.json",
+      "sha256": "cc2441dca2ab223c96bb0fb22fd12d2a3e15ccf187cd9e83a6e116fe702920d5",
+      "bytes": 63705
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-71.json",
+      "sha256": "7f681174bc748dfbd54f3fd4f0551aeaf8b78f9ec12b62f361cf6ca51fd056de",
+      "bytes": 63769
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-72.json",
+      "sha256": "8196ee94449e614198b81a52336f2a13c7208653f9948c07ab04d56877acfa77",
+      "bytes": 63812
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-73.json",
+      "sha256": "20385ecd993cf13fb6691a4e975b07389468f9e652f364c050e46fae7cda9d47",
+      "bytes": 63845
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-74.json",
+      "sha256": "94ff9598078040ccda9a0c462e8e275cb5023dd8eb56d280dbe27056f3940274",
+      "bytes": 63725
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-75.json",
+      "sha256": "9c6d387dbf7844b2f8d4d8f0dda3af0decb3ff2b056b5770ca7f30417381ecd5",
+      "bytes": 63907
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-76.json",
+      "sha256": "caf085a1472e1bd3e993d5e4e8888c36d5ff7cf19617bcb05ddee8cbaac313a7",
+      "bytes": 63964
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-77.json",
+      "sha256": "b98b27c03ded11b969db0d3e3553f34cb6ab40ea38e98e4a1462d06528cea315",
+      "bytes": 63876
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-78.json",
+      "sha256": "b2f0c2c408e24dcc9135e3a0a4aeec1ca45125b181d110ffdbf18cbb964616f0",
+      "bytes": 63866
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-79.json",
+      "sha256": "6a45073e3465a76a6442504874110661ab22c12192297bebdf2f453b1fbb189a",
+      "bytes": 63921
+    },
+    {
+      "path": "results/challenger-20261107/refine-FirstPrice-80.json",
+      "sha256": "d49548641f228407e044a1d947b63f903723eab91de24932446ddb0e709ce652",
+      "bytes": 63963
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-49.json",
+      "sha256": "fbb9409300dbf809cdaebcf884ce5b15ff7f3c1b6649e93e580a6d0250e4d8af",
+      "bytes": 63068
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-50.json",
+      "sha256": "5a3a9f88a67fac0490a875e86806c5d5d7eeb847feec89c8ae40ada6c1fddf5b",
+      "bytes": 63360
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-51.json",
+      "sha256": "4c5e78431c70ff18a2714635e205eb454653c1c53e5e2fb7e7d0aa0184a5bdf9",
+      "bytes": 63316
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-52.json",
+      "sha256": "470da260d815c27a7ef52e4d1a74134a2f74fb8a9ab3931600cdcb52d04bb04d",
+      "bytes": 63360
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-53.json",
+      "sha256": "c6b13fd2edbdeb44e68b6c372136035006a73ae8675b6313ff76f5be652701b5",
+      "bytes": 63258
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-54.json",
+      "sha256": "0b24f72de8ae6f03fe9469998f3f0f042d0f885b6e6d58d4aabe9f05fbe52cf8",
+      "bytes": 63316
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-55.json",
+      "sha256": "ece80db1078027a2c4f3450c67c74bd4770d50267e6fc372e72cdc1d753b177a",
+      "bytes": 63362
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-56.json",
+      "sha256": "baad620819bb3be3c661dac189096362797f0761033deabf88a9f3c51e256743",
+      "bytes": 63249
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-57.json",
+      "sha256": "f9c63e4b4ac19683f9b05139131efe6b1fc96a50918447fb393274d8606c4811",
+      "bytes": 63292
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-58.json",
+      "sha256": "9ece5497056f45f2bd63cbc98126103b72c353b4f27278601c70b922314d0dc2",
+      "bytes": 63320
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-59.json",
+      "sha256": "02665bbc49ff8e7828ab3b6ac09abc905227d3e2c5d698c279c51cbabc06f819",
+      "bytes": 63530
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-60.json",
+      "sha256": "0f2370b732ffb5266bbd39d5054e969e98c37d1ac67dbfb4fc2d3202a5d341fe",
+      "bytes": 63514
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-61.json",
+      "sha256": "f42298d9a1263ff6d0ca071a46980d7e47d08e2fbb83b5a10262a3b6221e21bb",
+      "bytes": 63586
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-62.json",
+      "sha256": "be7af502823cbf063fc8d12471d65180f23274cb90f80a2ed9a83f5b33404509",
+      "bytes": 63451
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-63.json",
+      "sha256": "0c6cd896cf01e89c79bac37effbe58db5aea343da20c85377cf1d9a9c50d3aab",
+      "bytes": 63410
+    },
+    {
+      "path": "results/challenger-20261107/refine-Vickrey-64.json",
+      "sha256": "ee616cad69f828b3b83176d242c43878733fff6faead9238231b9f25694627b8",
+      "bytes": 63417
+    },
+    {
+      "path": "results/challenger-20261107/report.json",
+      "sha256": "5c69dfc9c67f43b4a0e0610aa6498e8b66220434359f050b3c55682f49fc66e0",
+      "bytes": 65745
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-25.json",
+      "sha256": "f2895bf677104064e0edbb302bde55521509e90894efb6e55f44ecfbe2885499",
+      "bytes": 32675
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-26.json",
+      "sha256": "f57bc23117bd94188b4bc76cc10bfde2e98a506b0a3cd4f9ded9cd19a6f83792",
+      "bytes": 32722
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-27.json",
+      "sha256": "fedd464aac8a53f98b9b4b88789f0a621d3238c85d2ff484b398d58ccf94b2dd",
+      "bytes": 32744
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-28.json",
+      "sha256": "18f70a127c9120f3ce7c85cd116b198bc9572111ab7ef9a801059e4b60cb5d70",
+      "bytes": 32749
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-29.json",
+      "sha256": "abaf0f46f0822f48e8080d267977398ee805ac350c5525c46fd417964c2aed96",
+      "bytes": 32786
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-30.json",
+      "sha256": "13970f16be41606efdbae71f15b9796ed23dcd3dd5f77d1dcd427774739d65a1",
+      "bytes": 32766
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-31.json",
+      "sha256": "133f44b74cc40006f827843ec0a963602952c853c6229f46cb7a8292d22090a0",
+      "bytes": 32784
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-32.json",
+      "sha256": "5bacec6713d21025afd4ac938889de84731db2beb25433962968573e407ea1c7",
+      "bytes": 32807
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-33.json",
+      "sha256": "e104c9b4a58600443d9249464816e477cd608bd73ddae7de394f05e2333b5596",
+      "bytes": 32779
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-34.json",
+      "sha256": "41769d009f028fa2534eccc916b58e9add12e543787ae2bf82753b847f843296",
+      "bytes": 32765
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-35.json",
+      "sha256": "89bc4d1fb997aa8f3056b72ecd1e13d9426a47c9e06bd61876454587920bda40",
+      "bytes": 32748
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-36.json",
+      "sha256": "12d791dcd5343b7d263c5fe2f8bbb59758a0d09eced1812081cae32f566f0333",
+      "bytes": 32821
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-37.json",
+      "sha256": "ffa7df85a571c729c29889a753872035b63bd179722f1c08d9c8b984169788fb",
+      "bytes": 32870
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-38.json",
+      "sha256": "6792cc1eaf4c840aa77fcc84b7f60146db99d6bd26b91831666e5944ffd73484",
+      "bytes": 32885
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-39.json",
+      "sha256": "80a3a145d4b9f08973f151baf1e654571d5e1fec1b8f9b4d9ac11e9d60f60a91",
+      "bytes": 32802
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-40.json",
+      "sha256": "6803dd84868c539d49eb4088ee5cb7fd33b0d3aaad39e3a82ba227a956f805fd",
+      "bytes": 32911
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-41.json",
+      "sha256": "f03e0ac41deb67750570846dc33d2ad4684fb05895f7b8588e27340c2984925e",
+      "bytes": 32860
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-42.json",
+      "sha256": "370eb4854baee42bb9262ac394190432721bc02b37c3d102cad3fb87baf927c1",
+      "bytes": 32802
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-43.json",
+      "sha256": "0a4586ed73ea08a70d7b59f9363a79bf5d3931d4cb9bb87011decb48142fdf50",
+      "bytes": 32813
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-44.json",
+      "sha256": "80282593dd7f0e14979b514f0e65cb3dee3937912c97479625af4eef9b5517ae",
+      "bytes": 32841
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-45.json",
+      "sha256": "2fe4c7ef5e6bd7812afde58e7d22e0b4b1ee60215a618ba6dfbc094d35e31acf",
+      "bytes": 32866
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-46.json",
+      "sha256": "334033dd1dc72d8f015aea3998181ea4e5686b7265d8d28d0a111a94ee3132d7",
+      "bytes": 32870
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-47.json",
+      "sha256": "be9701f31f8ebf38fdf1c254246a4007cd034ded36524952c2a3fb00d300ffa1",
+      "bytes": 32880
+    },
+    {
+      "path": "results/challenger-20261107/screen-FirstPrice-48.json",
+      "sha256": "4786748ab7b67ab80adfcf3a943a6a9c932185e730fbd7dec484f32ff3e91cbe",
+      "bytes": 32934
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-1.json",
+      "sha256": "6da67b2ca2cfcd1f5e549e56b8774b134c5d487988f8175406b98fc4912cf6db",
+      "bytes": 32446
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-10.json",
+      "sha256": "8e4239fb337be131f248a11dda42d8b2fc93013f998a100ba3b9b210528dbae3",
+      "bytes": 32582
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-11.json",
+      "sha256": "b75118c9386328c57679b3a6dd83f8d546dd8a14c295ba479d3f62c1272dfede",
+      "bytes": 32530
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-12.json",
+      "sha256": "3ab53bd596363d0a2749806e793edec202776ad0868b13ed519525f642acea0b",
+      "bytes": 32589
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-13.json",
+      "sha256": "a60dc4d41b9dc609ee086232122736755fda5d819023af33be399706f809ca68",
+      "bytes": 32705
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-14.json",
+      "sha256": "d0cf2d6ba68277f1e54ac44bfa9f26074fd61b6345c38f411b2f839bf0b18dae",
+      "bytes": 32704
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-15.json",
+      "sha256": "22aeb88724cc9b8bcd5433068fde13a891cb2a624f502ff3d83c9333513f8932",
+      "bytes": 32663
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-16.json",
+      "sha256": "b34dfa6e7f6376affcf4816cec1041547196e475983e71a7c485abf3acaf81a3",
+      "bytes": 32718
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-17.json",
+      "sha256": "79a358fe27d4f62ebe9891c44e330a5d1c14249fa800a6dd7d92130da5b2e9fc",
+      "bytes": 32700
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-18.json",
+      "sha256": "2c1d3760bbf429d4441ac23e9d1e7ca783d4fad8414f08b245fd35ca0d22df9d",
+      "bytes": 32702
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-19.json",
+      "sha256": "170989ccae6cbda6eb80a54b72ab28476bc72b21af1856b2b54121d30db44f8a",
+      "bytes": 32687
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-2.json",
+      "sha256": "77d655c0eddb41bd3a07286036767d1b32df75f0bcaf60acb4fffb7cc34bf5b8",
+      "bytes": 32504
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-20.json",
+      "sha256": "8dfcc4c0acb966fe361f43aec4b6c0c9b4f74795e79a9a06922a098e9d999fba",
+      "bytes": 32542
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-21.json",
+      "sha256": "8097d2cccf4c55f31fd82fcd93332e76ac4f2873740456050b267475fa599894",
+      "bytes": 32702
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-22.json",
+      "sha256": "d9517db7de61d88d39e71d96991fcc6405fe669827733e114bab73ba1a3768a3",
+      "bytes": 32623
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-23.json",
+      "sha256": "9a6cbc0b4d9d9ffe0c623c35e0b56b00a14f76512fc008c30029babe07966a40",
+      "bytes": 32662
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-24.json",
+      "sha256": "ec18f92c1ec69b72bbc56c2b3ce43aff19f11a3015223fdd92253f3a82c04092",
+      "bytes": 32720
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-3.json",
+      "sha256": "ce647e6ab3a52630447bede283b7ef23560b717657280963a0ca94f98addc372",
+      "bytes": 32582
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-4.json",
+      "sha256": "98c2e39dce7168d5e61e274930783b62d917bfd0e79d79ad8d57d7181114273d",
+      "bytes": 32494
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-5.json",
+      "sha256": "8a3cb00b963e6ec0d550cf7a15362778ec01b2339ea642312a14e4fc3d75e860",
+      "bytes": 32460
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-6.json",
+      "sha256": "fa08649ccbf35f8ce75711b759bbb6a3de57f0ac15088dc712077239c873b3a0",
+      "bytes": 32483
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-7.json",
+      "sha256": "03f4a5d53d7ddc9ec04899de3cfb18c09d9791c2c086a20a71300b9cbdb33f2d",
+      "bytes": 32543
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-8.json",
+      "sha256": "097677b21b63593993e962ebc3de2c1dd1a430c2225bd85b5cbaa4a76f140e13",
+      "bytes": 32538
+    },
+    {
+      "path": "results/challenger-20261107/screen-Vickrey-9.json",
+      "sha256": "093aa314b8ae08f08d174ea25164b8b4660db1d06f07ad42d3b2d3506eb150a9",
+      "bytes": 32553
+    },
+    {
+      "path": "results/challenger-20261107/training-plan.json",
+      "sha256": "240104857113739036af723a795a43bf6aa0482d7eb83b35425686f0f10c0669",
+      "bytes": 17695
+    },
+    {
+      "path": "results/challenger-20261107/validation-FirstPrice-82.json",
+      "sha256": "142588bb5cafbd7fbb7be5f1a516c9e1c0ca577ac5d19d3fcc615d34768681ff",
+      "bytes": 935381
+    },
+    {
+      "path": "results/challenger-20261107/validation-Vickrey-81.json",
+      "sha256": "ad1c29a63b26ad28e0298e37aa1beb7a6df08054a365b413e153025fa150f004",
+      "bytes": 929879
+    },
+    {
+      "path": "tests/challenger-policy.test.ts",
+      "sha256": "e4c45f2089f89edfb310c2013074bbe37500690d71372a9c622e14ec51d49027",
+      "bytes": 2455
+    },
+    {
+      "path": "tests/challenger.test.ts",
+      "sha256": "c2f1a69837d0c68007140e0174dec5253a8543212d158621be3113027c09eef6",
+      "bytes": 1468
+    },
+    {
+      "path": "validation/challenger/tests.txt",
+      "sha256": "c24bb51bb3f34ec96f24a7ca043f76a65c528744d8c80f01ca76862599f27965",
+      "bytes": 3735
+    },
+    {
+      "path": "validation/challenger/typecheck.txt",
+      "sha256": "27f9339f43efea0c824a0006bdd8860917865d079f2b7d8a7c44196d85328a45",
+      "bytes": 124
+    },
+    {
+      "path": "validation/challenger/verification.json",
+      "sha256": "cf889b12fc724416b26d11868c3ef4193df6b768162872b0e87c8546927dbc23",
+      "bytes": 248
+    }
+  ]
+}

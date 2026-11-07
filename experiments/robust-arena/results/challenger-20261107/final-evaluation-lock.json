@@ -1,0 +1,73 @@
+{
+  "createdAt": "2026-11-07T22:09:16.582Z",
+  "frozenHash": "77a7c5b5c7fdef82a896d51c593e14d023ca12a5dd09463c90c084f568d30407",
+  "finalSeedRange": [
+    1200001,
+    1200048
+  ],
+  "settings": [
+    {
+      "id": "pressure",
+      "family": "pressure"
+    },
+    {
+      "id": "portfolio",
+      "family": "portfolio"
+    },
+    {
+      "id": "balanced",
+      "family": "balanced"
+    },
+    {
+      "id": "frontier-mixed",
+      "family": "frontier-mixed"
+    },
+    {
+      "id": "balanced-miss-10pct",
+      "family": "balanced",
+      "missedWindowProbability": 0.1
+    },
+    {
+      "id": "balanced-one-word",
+      "family": "balanced",
+      "maxWordsPerWindow": 1
+    }
+  ],
+  "parameters": {
+    "Vickrey": {
+      "face": 4.438737706858465,
+      "marginal": 0.12918511941210686,
+      "future": 0.2788116878051139,
+      "shade": 0.25,
+      "cash": 13.575433598127795,
+      "minLength": 8.864172119129918,
+      "liquidate": 3.7849320111305023,
+      "cap": 36.82952505102769
+    },
+    "FirstPrice": {
+      "face": 5.246183055352143,
+      "marginal": 0.4369322124232993,
+      "future": 0.527566916001006,
+      "shade": 0.6299476507628509,
+      "cash": 21.629430816771787,
+      "minLength": 8.385166254204869,
+      "liquidate": 1,
+      "cap": 12
+    }
+  },
+  "hashes": {
+    "challenger_train.ts": "ed9e81ac3a2685ebcc6f27f0808af7c90a66c24aa2853c343cb3a31b612b70d1",
+    "challenger_worker.ts": "c734c52401dfe4e2ceba6d93989cd9e69b50f61bed927f461a9a92060a646484",
+    "challenger_league.ts": "b194c14440766c14e635eefd129e8905fdf49d6ef40367a94f0b8508c11e9ecf",
+    "arena_v2.ts": "6fc8a01953372463b61f0502aad78ef5a8c14d359e3665b4ca8db5e49c148aba",
+    "league.ts": "eedac3ebe656a49e7875e6d6c68a7ed7e94fe85ca8c7ab7a82b066cb7b70a91e",
+    "arena.ts": "7f597584f054d0b25ca772b0dc79d4ff58bbb24ebe8a2dfa861784c8462f46e8",
+    "statistics.ts": "5f4996f568b4f2f3b1f7a2dfe03b444c134d6b979341c93342902a3e889992b5",
+    "parametric_strategy.ts": "8de6bbf852acca0e06d7be715be1580d4bf0239a45fb7e4cbe825eee70a7be2c",
+    "original_strategy.ts": "64ca4f2c53cf8434a67bb0ffac18bfb7053e52a647eac483213e55ca23761fb0",
+    "original_simulator.ts": "7560a26b1b2b119337d0d83ef2c70f4cfce2c17047f820eea84fca5fce23a443",
+    "learned_policy.ts": "df7a0ab4d01216fcc653395ea3f11af4c0e9bc846922f90122e54a3a740ed381",
+    "learned-weights.json": "487243559168aad6db70df7ed3a1cb9528426f163c207212220df1480697cb49",
+    "wordlist.txt": "5141da6f336b3e74a5559c996bb02ec2d93d7eb317ab84200a56e79d6ccfb681"
+  }
+}
