@@ -1,0 +1,7 @@
+node_modules/
+upstream/spacetimedb/node_modules/
+upstream/spacetimedb/dist/
+tools/
+runtime/
+.token*
+*.pem
