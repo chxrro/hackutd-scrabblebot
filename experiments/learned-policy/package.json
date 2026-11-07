@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "train": "node --import tsx train.ts",
+    "test": "node --import tsx --test experiment.test.ts",
+    "build": "tsc --noEmit",
+    "emit-runtime": "node emit-runtime.mjs"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0"
+  }
+}

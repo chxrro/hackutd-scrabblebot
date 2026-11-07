@@ -1,0 +1,130 @@
+✔ enhanced skips unusable final-auction tile (1.463633ms)
+✔ enhanced liquidates even two-letter words before final resolution (0.77098ms)
+✔ enhanced holds short early words with ample cash, but plays to refill low cash (0.38902ms)
+✔ enhanced chooses scoring value rather than raw word length (0.44288ms)
+✖ enhanced plays ready seven-letter word early (3.338679ms)
+✔ enhanced bids remain finite affordable integers and never mutate inputs (21.837245ms)
+✔ enhanced decisions are legal and do not consume source racks (1.404505ms)
+✔ scoring follows integer server multiplier (1.051558ms)
+✔ counts repeated letters and never mutates rack (14.765069ms)
+✖ holds short words early, cashes out at deadline or low funds (2.899223ms)
+✖ plays seven-letter bonus without waiting (25.901405ms)
+✖ uses reward rather than blindly longest word at liquidation (0.50267ms)
+✔ bid is integer, nonnegative and never over balance; last tile skipped (69.31643ms)
+✖ first-price bids shaded and completion letters valued (2.220291ms)
+✔ dictionary search and bid fit well inside one-second auction (26.132822ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 10
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 864.158721
+
+✖ failing tests:
+
+test at compatibility/enhanced.test.ts:1:1146
+✖ enhanced plays ready seven-letter word early (3.338679ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'RETAINS'
+  
+      at TestContext.<anonymous> (/workspace/scratch/af8ac4a3fcab/scrabblebot-learning-experiment/compatibility/enhanced.test.ts:11:65)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'RETAINS',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at compatibility/strategy.test.ts:1:1019
+✖ holds short words early, cashes out at deadline or low funds (2.899223ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'CAT'
+  
+      at TestContext.<anonymous> (/workspace/scratch/af8ac4a3fcab/scrabblebot-learning-experiment/compatibility/strategy.test.ts:21:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'CAT',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at compatibility/strategy.test.ts:1:1416
+✖ plays seven-letter bonus without waiting (25.901405ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(word && word.length===7)
+  
+      at TestContext.<anonymous> (/workspace/scratch/af8ac4a3fcab/scrabblebot-learning-experiment/compatibility/strategy.test.ts:25:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at compatibility/strategy.test.ts:1:1635
+✖ uses reward rather than blindly longest word at liquidation (0.50267ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'QUIZ'
+  
+      at TestContext.<anonymous> (/workspace/scratch/af8ac4a3fcab/scrabblebot-learning-experiment/compatibility/strategy.test.ts:28:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'QUIZ',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at compatibility/strategy.test.ts:1:2233
+✖ first-price bids shaded and completion letters valued (2.220291ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(decideBid(ctx)>decideBid({...ctx,letter:'Q'}))
+  
+      at TestContext.<anonymous> (/workspace/scratch/af8ac4a3fcab/scrabblebot-learning-experiment/compatibility/strategy.test.ts:40:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

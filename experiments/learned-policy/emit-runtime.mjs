@@ -1,0 +1,4 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+const {parameters}=JSON.parse(readFileSync(new URL('./learned-weights.json',import.meta.url),'utf8'));
+writeFileSync(new URL('./learned_policy.ts',import.meta.url),`/** Frozen learned policy. Offline experiment; live play is not verified. */\nimport { decideBid as bid, chooseWord as word, type BidContext, type WordContext, type Parameters } from './parametric_strategy.js';\nexport { LETTER_VALUE, wordReward, canSpell, prepareDictionary } from './parametric_strategy.js';\nexport type { BidContext, WordContext } from './parametric_strategy.js';\nexport const LEARNED_PARAMETERS: Parameters = ${JSON.stringify(parameters,null,2)};\nexport function decideBid(ctx: BidContext): number { return bid(ctx, LEARNED_PARAMETERS); }\nexport function chooseWord(ctx: WordContext): string | null { return word(ctx, LEARNED_PARAMETERS); }\n`);
+console.log('Wrote learned_policy.ts from frozen learned-weights.json');

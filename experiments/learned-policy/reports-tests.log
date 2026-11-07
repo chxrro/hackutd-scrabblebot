@@ -1,0 +1,20 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test
+> node --import tsx --test experiment.test.ts
+
+✔ trained bid bounded and finite across tiny balances and invalid/final letters (9.295995ms)
+✔ dictionary word selection is legal and consumes no input state (1.108813ms)
+✔ paired arena is reproducible (17.094336ms)
+✔ arena conserves balance given game score and auction spending (31.067145ms)
+✔ external bot gets no word callback after buying the final tile (0.770068ms)
+✔ frozen runtime uses exactly the selected learned weights (7.359706ms)
+✔ frozen policy late liquidation is deliberate and legal (0.452034ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 366.210742

@@ -1,0 +1,22 @@
+{
+  "method": "cross-entropy black-box policy optimization",
+  "trainingSeedRange": [
+    210001,
+    210018
+  ],
+  "validationSeedRange": [
+    310001,
+    310036
+  ],
+  "objective": "mean pairwise finish score + 0.002 * game score",
+  "parameters": {
+    "face": 3.289016834748909,
+    "marginal": 0.44609652369159775,
+    "future": 0.2624546149098246,
+    "shade": 0.6894965810197132,
+    "cash": 27.50927319932018,
+    "minLength": 7.793261559292988,
+    "liquidate": 2.246031833458863,
+    "cap": 31.115967787688003
+  }
+}

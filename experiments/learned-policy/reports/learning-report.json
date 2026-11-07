@@ -1,0 +1,330 @@
+{
+  "generatedAt": "2026-11-07T21:27:26.957Z",
+  "dictionaryWords": 172820,
+  "method": "cross-entropy policy optimization, no LLM or network inference",
+  "trainingGames": 2016,
+  "validationCandidates": 16,
+  "generations": 4,
+  "population": 20,
+  "parameters": {
+    "face": 3.289016834748909,
+    "marginal": 0.44609652369159775,
+    "future": 0.2624546149098246,
+    "shade": 0.6894965810197132,
+    "cash": 27.50927319932018,
+    "minLength": 7.793261559292988,
+    "liquidate": 2.246031833458863,
+    "cap": 31.115967787688003
+  },
+  "heldOutSeedRange": [
+    410001,
+    410100
+  ],
+  "rows": [
+    {
+      "auctionType": "Vickrey",
+      "opponents": "starters",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 305.76,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "original-enhanced": {
+        "score": 248.98,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "official-starter": {
+        "score": 32.23,
+        "win": 0.26,
+        "pairwise": 0.5589999999999999,
+        "rank": 3.15
+      },
+      "pairedScoreGain": {
+        "mean": 56.78,
+        "ci95": [
+          51.80236703594485,
+          61.757632964055155
+        ]
+      }
+    },
+    {
+      "auctionType": "Vickrey",
+      "opponents": "server-mixed",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 289.79,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "original-enhanced": {
+        "score": 202.96,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "official-starter": {
+        "score": 17.42,
+        "win": 0,
+        "pairwise": 0.48200000000000054,
+        "rank": 3.55
+      },
+      "pairedScoreGain": {
+        "mean": 86.83,
+        "ci95": [
+          80.57199453325437,
+          93.08800546674563
+        ]
+      }
+    },
+    {
+      "auctionType": "Vickrey",
+      "opponents": "smart-mixed",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 170.6,
+        "win": 0.84,
+        "pairwise": 0.9679999999999996,
+        "rank": 1.16
+      },
+      "original-enhanced": {
+        "score": 59.95,
+        "win": 0.02,
+        "pairwise": 0.5629999999999998,
+        "rank": 3.16
+      },
+      "official-starter": {
+        "score": 21.76,
+        "win": 0,
+        "pairwise": 0.15699999999999986,
+        "rank": 5.18
+      },
+      "pairedScoreGain": {
+        "mean": 110.65,
+        "ci95": [
+          103.29852189946632,
+          118.00147810053369
+        ]
+      }
+    },
+    {
+      "auctionType": "Vickrey",
+      "opponents": "clones",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 205.35,
+        "win": 0.99,
+        "pairwise": 0.998,
+        "rank": 1.01
+      },
+      "original-enhanced": {
+        "score": 69.79,
+        "win": 0.14,
+        "pairwise": 0.42399999999999993,
+        "rank": 3.87
+      },
+      "official-starter": {
+        "score": 28.11,
+        "win": 0,
+        "pairwise": 0.04600000000000001,
+        "rank": 5.74
+      },
+      "pairedScoreGain": {
+        "mean": 135.56,
+        "ci95": [
+          124.97118651917425,
+          146.14881348082577
+        ]
+      }
+    },
+    {
+      "auctionType": "FirstPrice",
+      "opponents": "starters",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 176.92,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "original-enhanced": {
+        "score": 134.91,
+        "win": 0.99,
+        "pairwise": 0.992,
+        "rank": 1.04
+      },
+      "official-starter": {
+        "score": 32.23,
+        "win": 0.26,
+        "pairwise": 0.5589999999999999,
+        "rank": 3.15
+      },
+      "pairedScoreGain": {
+        "mean": 42.01,
+        "ci95": [
+          31.748657602615353,
+          52.27134239738464
+        ]
+      }
+    },
+    {
+      "auctionType": "FirstPrice",
+      "opponents": "server-mixed",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 163.64,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "original-enhanced": {
+        "score": 90.64,
+        "win": 0.68,
+        "pairwise": 0.8929999999999996,
+        "rank": 1.53
+      },
+      "official-starter": {
+        "score": 22.57,
+        "win": 0,
+        "pairwise": 0.5090000000000006,
+        "rank": 3.42
+      },
+      "pairedScoreGain": {
+        "mean": 73,
+        "ci95": [
+          63.14830523322115,
+          82.85169476677885
+        ]
+      }
+    },
+    {
+      "auctionType": "FirstPrice",
+      "opponents": "smart-mixed",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 158.72,
+        "win": 0.77,
+        "pairwise": 0.9519999999999997,
+        "rank": 1.24
+      },
+      "original-enhanced": {
+        "score": 64.87,
+        "win": 0,
+        "pairwise": 0.6109999999999997,
+        "rank": 2.94
+      },
+      "official-starter": {
+        "score": 29.87,
+        "win": 0,
+        "pairwise": 0.3229999999999999,
+        "rank": 4.34
+      },
+      "pairedScoreGain": {
+        "mean": 93.85,
+        "ci95": [
+          87.0141465371428,
+          100.68585346285718
+        ]
+      }
+    },
+    {
+      "auctionType": "FirstPrice",
+      "opponents": "clones",
+      "gamesPerPolicy": 100,
+      "seedRange": [
+        410001,
+        410100
+      ],
+      "learned": {
+        "score": 188.59,
+        "win": 1,
+        "pairwise": 1,
+        "rank": 1
+      },
+      "original-enhanced": {
+        "score": 71.11,
+        "win": 0.11,
+        "pairwise": 0.449,
+        "rank": 3.73
+      },
+      "official-starter": {
+        "score": 34.61,
+        "win": 0,
+        "pairwise": 0.109,
+        "rank": 5.44
+      },
+      "pairedScoreGain": {
+        "mean": 117.48,
+        "ci95": [
+          110.01033293011332,
+          124.94966706988669
+        ]
+      }
+    }
+  ],
+  "latency": {
+    "bid": {
+      "calls": 54400,
+      "meanMs": 0.614895046176383,
+      "p95Ms": 2.3225749999983236,
+      "p99Ms": 4.044258999987505,
+      "maxMs": 50.94902299999376
+    },
+    "word": {
+      "calls": 60132,
+      "meanMs": 0.04172485069511976,
+      "p95Ms": 0.2790060000261292,
+      "p99Ms": 0.8345520000148099,
+      "maxMs": 60.53824200000963
+    }
+  },
+  "elapsedMs": 372409.78350699996,
+  "hashes": {
+    "arena.ts": "7f597584f054d0b25ca772b0dc79d4ff58bbb24ebe8a2dfa861784c8462f46e8",
+    "train.ts": "884c4518f539ab61a1594103aff81aae4a8976be5206136cf23d94126406269d",
+    "parametric_strategy.ts": "8de6bbf852acca0e06d7be715be1580d4bf0239a45fb7e4cbe825eee70a7be2c",
+    "original_strategy.ts": "64ca4f2c53cf8434a67bb0ffac18bfb7053e52a647eac483213e55ca23761fb0",
+    "wordlist.txt": "5141da6f336b3e74a5559c996bb02ec2d93d7eb317ab84200a56e79d6ccfb681"
+  },
+  "limitations": [
+    "Offline proxy; no live server or tournament evidence.",
+    "Training/validation opponents are hand-written policies, not actual competitors.",
+    "Smart variants share the same trie and word-utility design; diversity is limited.",
+    "Final game tick, tie handling, cash rewards and legal words match inspected source semantics.",
+    "Separate indexed streams keep paired deals, jitter and tie priorities equal.",
+    "No network delay, callback races, scheduler contention or adaptive opponent learning.",
+    "Mean-score intervals are paired normal approximations, not a guarantee."
+  ]
+}

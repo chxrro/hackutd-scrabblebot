@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import { decideBid, chooseWord, prepareDictionary, canSpell, wordReward } from '../learned_policy.js';
+import { rackOf } from '../original_simulator.js';
+const dictionary=['QUIZ','QUIT','CAT','AT','AA','RETAINS','TRAIN','RAIN'];
+prepareDictionary(dictionary);
+test('enhanced skips unusable final-auction tile',()=>{assert.equal(decideBid({letter:'S',myBalance:100,myRack:rackOf('RETAIN'),dictionary,bagRemaining:0}),0);});
+test('enhanced liquidates even two-letter words before final resolution',()=>{assert.equal(chooseWord({myRack:rackOf('AT'),dictionary,myBalance:100,bagRemaining:0}),'AT');});
+test('enhanced holds short early words with ample cash, but plays to refill low cash',()=>{assert.equal(chooseWord({myRack:rackOf('CAT'),dictionary,myBalance:100,bagRemaining:60}),null);assert.equal(chooseWord({myRack:rackOf('CAT'),dictionary,myBalance:1,bagRemaining:60}),'CAT');});
+test('enhanced chooses scoring value rather than raw word length',()=>{assert.equal(chooseWord({myRack:rackOf('QUIZT'),dictionary,myBalance:100,bagRemaining:0}),'QUIZ');assert.ok(wordReward('QUIZ')>wordReward('QUIT'));});
+test('enhanced plays ready seven-letter word early',()=>{assert.equal(chooseWord({myRack:rackOf('RETAINS'),dictionary,myBalance:100,bagRemaining:60}),'RETAINS');});
+test('enhanced bids remain finite affordable integers and never mutate inputs',()=>{for(const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')for(const myBalance of [0,1,5,20,100])for(const auctionType of ['Vickrey','FirstPrice'] as const){const myRack=rackOf('QUIZRETAIN');const saved=new Map(myRack);const bid=decideBid({letter,myBalance,myRack,dictionary,bagRemaining:10,auctionType});assert.ok(Number.isInteger(bid)&&bid>=0&&bid<=myBalance);assert.deepEqual(myRack,saved);}});
+test('enhanced decisions are legal and do not consume source racks',()=>{for(const letters of ['AA','CAT','QUIZT','RETAINS','C','']){const myRack=rackOf(letters);const saved=new Map(myRack);const word=chooseWord({myRack,dictionary,myBalance:0,bagRemaining:0});if(word){assert.ok(dictionary.includes(word));assert.ok(canSpell(word,myRack));}assert.deepEqual(myRack,saved);}});
