@@ -1,0 +1,14 @@
+{
+  "source": "../learned-policy (prior local experiment)",
+  "unchanged_inputs_sha256": {
+    "original_strategy.ts": "64ca4f2c53cf8434a67bb0ffac18bfb7053e52a647eac483213e55ca23761fb0",
+    "original_simulator.ts": "7560a26b1b2b119337d0d83ef2c70f4cfce2c17047f820eea84fca5fce23a443",
+    "parametric_strategy.ts": "8de6bbf852acca0e06d7be715be1580d4bf0239a45fb7e4cbe825eee70a7be2c",
+    "arena.ts": "7f597584f054d0b25ca772b0dc79d4ff58bbb24ebe8a2dfa861784c8462f46e8",
+    "learned_policy.ts": "df7a0ab4d01216fcc653395ea3f11af4c0e9bc846922f90122e54a3a740ed381",
+    "learned-weights.json": "487243559168aad6db70df7ed3a1cb9528426f163c207212220df1480697cb49",
+    "experiment.test.ts": "0e6324999f5e7077588d38554ca266397bde93967b936eb8326f2b4e06ef603b",
+    "wordlist.txt": "5141da6f336b3e74a5559c996bb02ec2d93d7eb317ab84200a56e79d6ccfb681"
+  },
+  "official_source": "reference/SOURCES.json"
+}

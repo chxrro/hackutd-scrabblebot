@@ -1,0 +1,47 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test
+> node --import tsx --test experiment.test.ts tests/*.test.ts
+
+✔ trained bid bounded and finite across tiny balances and invalid/final letters (11.847843ms)
+✔ dictionary word selection is legal and consumes no input state (0.572926ms)
+✔ paired arena is reproducible (31.059107ms)
+✔ arena conserves balance given game score and auction spending (39.859567ms)
+✔ external bot gets no word callback after buying the final tile (0.822418ms)
+✔ frozen runtime uses exactly the selected learned weights (18.258071ms)
+✔ frozen policy late liquidation is deliberate and legal (0.680966ms)
+✔ v2 deterministic including complete trace (13.088295ms)
+✔ all seats get identical deal and independent jitter, ties, and stress draws (4.404524ms)
+✔ zero bids discard all tiles; callbacks exclude current tile (0.414058ms)
+✔ fractional and shared wins distinguish ties correctly (1.409513ms)
+✔ callbacks have no hidden opponent state and observe only public payments (1.689872ms)
+✔ one word per window and total missed windows are explicit stresses (0.861566ms)
+✔ stateful factories reset match observations (4.6495ms)
+✔ exact portfolio partition can beat longest-word reward (1.200522ms)
+✔ v2 legality, money and per-letter conservation across leagues and auctions (105.527881ms)
+✔ reject invalid bids, words, priorities, and setup (0.832623ms)
+✔ FirstPrice: closeAuction matches mirror for zero bids, reserve, ties and price (52.436324ms)
+✔ Vickrey: closeAuction matches mirror for zero bids, reserve, ties and price (16.008704ms)
+✔ shuffle-then-sort permits every tied bidder to win and excludes zero bids (2.918296ms)
+✔ all simulated strategies match actual bigint decideBid across letters, jitter and balances (3.539032ms)
+✔ all letter values and exact 98-tile distribution match upstream (0.447808ms)
+✔ playWord rewards use integer division, consume multiplicities and credit balance plus score (1.283686ms)
+✔ insufficient repeated letters fail before any mutation (0.468108ms)
+✔ actual submitWord callback validates dictionary, ASCII, length and multiplicity without mutation (1.362724ms)
+✔ actual submitBid callback rejects invalid bids and replaces rather than accumulates (0.787285ms)
+✔ last tile allows simulated winner to play before ending, but external bots cannot play afterward (2.12414ms)
+✔ drawLetter uses remaining multiplicity, decrements bag and ends at exhaustion (1.367612ms)
+✔ canonical dictionary matches server longest-then-lex ordering (51.893304ms)
+✔ archived generic dictionary preserves input-order ties (documented boundary) (42.733112ms)
+✔ nonfinal close opens and schedules next auction, allowing external play in its window (1.229645ms)
+✔ pinned upstream fixtures match recorded content and Git blob hashes (1.083287ms)
+✔ cluster bootstrap deterministic and exact on constant deal differences (12.008083ms)
+✔ six seats against identical policies give exact symmetric fractional and pairwise wins (54.523558ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1616.667274

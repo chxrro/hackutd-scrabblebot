@@ -1,0 +1,1372 @@
+{
+  "createdAt": "2026-11-07T21:35:48.980Z",
+  "purpose": "Fresh evaluation of existing frozen policy, no training or model selection",
+  "seedRange": [
+    710001,
+    710032
+  ],
+  "dealsPerSetting": 32,
+  "seats": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "policies": [
+    "frozen",
+    "original"
+  ],
+  "settings": [
+    {
+      "auctionType": "Vickrey",
+      "league": "server-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "Vickrey",
+      "league": "smart-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "Vickrey",
+      "league": "frozen-mirror",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "Vickrey",
+      "league": "frontier-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "Vickrey",
+      "league": "portfolio-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "Vickrey",
+      "league": "frontier-mixed",
+      "label": "miss-10pct",
+      "missedWindowProbability": 0.1
+    },
+    {
+      "auctionType": "Vickrey",
+      "league": "frontier-mixed",
+      "label": "one-word",
+      "maxWordsPerWindow": 1
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "server-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "smart-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "frozen-mirror",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "frontier-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "portfolio-mixed",
+      "label": "ideal"
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "frontier-mixed",
+      "label": "miss-10pct",
+      "missedWindowProbability": 0.1
+    },
+    {
+      "auctionType": "FirstPrice",
+      "league": "frontier-mixed",
+      "label": "one-word",
+      "maxWordsPerWindow": 1
+    }
+  ],
+  "hashes": {
+    "arena_v2.ts": "6fc8a01953372463b61f0502aad78ef5a8c14d359e3665b4ca8db5e49c148aba",
+    "league.ts": "eedac3ebe656a49e7875e6d6c68a7ed7e94fe85ca8c7ab7a82b066cb7b70a91e",
+    "statistics.ts": "5f4996f568b4f2f3b1f7a2dfe03b444c134d6b979341c93342902a3e889992b5",
+    "evaluate.ts": "b84436b359a4a9765f0f0d19b7733692652ab09b3b4b4a06ccf4fbcc2639e285",
+    "evaluate-worker.ts": "c3f5d9bb10183bce22688d24a9a7c29e4ec041bfa4488b8e250c88df3ecad046",
+    "parametric_strategy.ts": "8de6bbf852acca0e06d7be715be1580d4bf0239a45fb7e4cbe825eee70a7be2c",
+    "original_strategy.ts": "64ca4f2c53cf8434a67bb0ffac18bfb7053e52a647eac483213e55ca23761fb0",
+    "original_simulator.ts": "7560a26b1b2b119337d0d83ef2c70f4cfce2c17047f820eea84fca5fce23a443",
+    "learned_policy.ts": "df7a0ab4d01216fcc653395ea3f11af4c0e9bc846922f90122e54a3a740ed381",
+    "learned-weights.json": "487243559168aad6db70df7ed3a1cb9528426f163c207212220df1480697cb49",
+    "wordlist.txt": "5141da6f336b3e74a5559c996bb02ec2d93d7eb317ab84200a56e79d6ccfb681"
+  },
+  "confidence": "Paired percentile bootstrap over deal means, 5000 resamples. All six seats form one cluster. Intervals are per comparison, not simultaneous.",
+  "stress": "Synthetic skipped external windows and one-word budgets; not measured network latency.",
+  "completedAt": "2026-11-07T21:38:43.982Z",
+  "elapsedMs": 175001.661967,
+  "totalGames": 5376,
+  "summaries": [
+    {
+      "id": "Vickrey-server-mixed-ideal",
+      "auctionType": "Vickrey",
+      "league": "server-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 283.78125,
+          "serverWin": 1,
+          "outrightWin": 1,
+          "fractionalWin": 1,
+          "pairwise": 1,
+          "rank": 1,
+          "midRank": 1,
+          "spent": 272.625,
+          "balance": 111.15625,
+          "leftoverTiles": 0.9322916666666666,
+          "words": 8.526041666666666,
+          "auctionsWon": 48.526041666666664,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 198.52604166666666,
+          "serverWin": 1,
+          "outrightWin": 1,
+          "fractionalWin": 1,
+          "pairwise": 1,
+          "rank": 1,
+          "midRank": 1,
+          "spent": 175.79166666666666,
+          "balance": 122.734375,
+          "leftoverTiles": 0.21875,
+          "words": 6.307291666666667,
+          "auctionsWon": 32.026041666666664,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 85.25520833333331,
+          "ci95": [
+            78.07812499999999,
+            93.16666666666669
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0,
+          "ci95": [
+            0,
+            0
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 28960,
+        "bidMaxMs": 28.135552999999845,
+        "wordMaxMs": 27.34551999999985
+      },
+      "workerElapsedMs": 16346.976768999999
+    },
+    {
+      "id": "Vickrey-smart-mixed-ideal",
+      "auctionType": "Vickrey",
+      "league": "smart-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 169.97916666666666,
+          "serverWin": 0.8333333333333334,
+          "outrightWin": 0.8229166666666666,
+          "fractionalWin": 0.828125,
+          "pairwise": 0.9656250000000003,
+          "rank": 1.1666666666666667,
+          "midRank": 1.171875,
+          "spent": 208,
+          "balance": 61.979166666666664,
+          "leftoverTiles": 0.4322916666666667,
+          "words": 5.598958333333333,
+          "auctionsWon": 28.380208333333332,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 57.729166666666664,
+          "serverWin": 0.005208333333333333,
+          "outrightWin": 0.005208333333333333,
+          "fractionalWin": 0.005208333333333333,
+          "pairwise": 0.5343749999999994,
+          "rank": 3.3020833333333335,
+          "midRank": 3.328125,
+          "spent": 53.161458333333336,
+          "balance": 104.56770833333333,
+          "leftoverTiles": 0.07291666666666667,
+          "words": 2.515625,
+          "auctionsWon": 7.5,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 112.25,
+          "ci95": [
+            106.74479166666667,
+            118.01041666666667
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.8281249999999999,
+          "ci95": [
+            0.7760416666666666,
+            0.8802083333333331
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.8177083333333333,
+          "ci95": [
+            0.765625,
+            0.8645833333333334
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.8229166666666666,
+          "ci95": [
+            0.7708333333333334,
+            0.8723958333333333
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4312500000000001,
+          "ci95": [
+            0.4072916666666668,
+            0.4562500000000001
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27670,
+        "bidMaxMs": 17.131603999998333,
+        "wordMaxMs": 11.361182999999983
+      },
+      "workerElapsedMs": 30518.702228000002
+    },
+    {
+      "id": "Vickrey-frozen-mirror-ideal",
+      "auctionType": "Vickrey",
+      "league": "frozen-mirror",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 81.11458333333333,
+          "serverWin": 0.171875,
+          "outrightWin": 0.16145833333333334,
+          "fractionalWin": 0.16666666666666666,
+          "pairwise": 0.5000000000000001,
+          "rank": 3.4791666666666665,
+          "midRank": 3.5,
+          "spent": 95.34895833333333,
+          "balance": 85.765625,
+          "leftoverTiles": 0.140625,
+          "words": 2.6666666666666665,
+          "auctionsWon": 10.984375,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 40.203125,
+          "serverWin": 0.005208333333333333,
+          "outrightWin": 0.005208333333333333,
+          "fractionalWin": 0.005208333333333333,
+          "pairwise": 0.06406249999999997,
+          "rank": 5.666666666666667,
+          "midRank": 5.6796875,
+          "spent": 32.458333333333336,
+          "balance": 107.74479166666667,
+          "leftoverTiles": 0.078125,
+          "words": 2.0052083333333335,
+          "auctionsWon": 4.291666666666667,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 40.91145833333334,
+          "ci95": [
+            38.90624999999999,
+            42.812500000000014
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.16666666666666669,
+          "ci95": [
+            0.15104166666666666,
+            0.18229166666666669
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.15625,
+          "ci95": [
+            0.14062499999999997,
+            0.16666666666666669
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.16145833333333334,
+          "ci95": [
+            0.15104166666666666,
+            0.16666666666666669
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4359375000000001,
+          "ci95": [
+            0.41666666666666674,
+            0.45364583333333336
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27009,
+        "bidMaxMs": 16.661028000000442,
+        "wordMaxMs": 8.552615999999944
+      },
+      "workerElapsedMs": 68650.266959
+    },
+    {
+      "id": "Vickrey-frontier-mixed-ideal",
+      "auctionType": "Vickrey",
+      "league": "frontier-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 100.52083333333333,
+          "serverWin": 0.3177083333333333,
+          "outrightWin": 0.3072916666666667,
+          "fractionalWin": 0.3125,
+          "pairwise": 0.7567708333333328,
+          "rank": 2.1927083333333335,
+          "midRank": 2.2161458333333335,
+          "spent": 133.51041666666666,
+          "balance": 67.01041666666667,
+          "leftoverTiles": 0.3020833333333333,
+          "words": 3.1875,
+          "auctionsWon": 13.619791666666666,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 45.390625,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.2697916666666666,
+          "rank": 4.630208333333333,
+          "midRank": 4.651041666666667,
+          "spent": 38.619791666666664,
+          "balance": 106.77083333333333,
+          "leftoverTiles": 0.15625,
+          "words": 1.7395833333333333,
+          "auctionsWon": 4.197916666666667,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 55.13020833333333,
+          "ci95": [
+            51.08854166666667,
+            59.06770833333335
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.31770833333333337,
+          "ci95": [
+            0.27083333333333326,
+            0.3645833333333333
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.30729166666666674,
+          "ci95": [
+            0.26041666666666663,
+            0.3541666666666667
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.3125,
+          "ci95": [
+            0.26562499999999994,
+            0.3567708333333334
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.48697916666666663,
+          "ci95": [
+            0.44687500000000013,
+            0.5276041666666665
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27058,
+        "bidMaxMs": 8.298534999998083,
+        "wordMaxMs": 8.219698000000108
+      },
+      "workerElapsedMs": 39316.646454
+    },
+    {
+      "id": "Vickrey-portfolio-mixed-ideal",
+      "auctionType": "Vickrey",
+      "league": "portfolio-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 120.18229166666667,
+          "serverWin": 0.4583333333333333,
+          "outrightWin": 0.4583333333333333,
+          "fractionalWin": 0.4583333333333333,
+          "pairwise": 0.8703124999999999,
+          "rank": 1.6458333333333333,
+          "midRank": 1.6484375,
+          "spent": 165.734375,
+          "balance": 54.447916666666664,
+          "leftoverTiles": 0.53125,
+          "words": 4.151041666666667,
+          "auctionsWon": 17.84375,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 52.515625,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.5026041666666663,
+          "rank": 3.46875,
+          "midRank": 3.4869791666666665,
+          "spent": 47.932291666666664,
+          "balance": 104.58333333333333,
+          "leftoverTiles": 0.16666666666666666,
+          "words": 1.9114583333333333,
+          "auctionsWon": 5.1875,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 67.66666666666667,
+          "ci95": [
+            64.66666666666666,
+            70.65104166666667
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.4583333333333333,
+          "ci95": [
+            0.38020833333333337,
+            0.5312500000000001
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.4583333333333333,
+          "ci95": [
+            0.38020833333333337,
+            0.5312500000000001
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.4583333333333333,
+          "ci95": [
+            0.38020833333333337,
+            0.5312500000000001
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.36770833333333336,
+          "ci95": [
+            0.33802083333333327,
+            0.3973958333333334
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27276,
+        "bidMaxMs": 8.757889999999861,
+        "wordMaxMs": 8.078963999999814
+      },
+      "workerElapsedMs": 23880.534022
+    },
+    {
+      "id": "Vickrey-frontier-mixed-miss-10pct",
+      "auctionType": "Vickrey",
+      "league": "frontier-mixed",
+      "stress": "miss-10pct",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 95.68229166666667,
+          "serverWin": 0.2552083333333333,
+          "outrightWin": 0.24479166666666666,
+          "fractionalWin": 0.25,
+          "pairwise": 0.7286458333333328,
+          "rank": 2.3385416666666665,
+          "midRank": 2.3567708333333335,
+          "spent": 123.43229166666667,
+          "balance": 72.25,
+          "leftoverTiles": 0.4010416666666667,
+          "words": 3.0208333333333335,
+          "auctionsWon": 12.958333333333334,
+          "missedWindows": 6.973958333333333
+        },
+        "original": {
+          "score": 45.15625,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.2682291666666667,
+          "rank": 4.614583333333333,
+          "midRank": 4.658854166666667,
+          "spent": 37.276041666666664,
+          "balance": 107.88020833333333,
+          "leftoverTiles": 0.09895833333333333,
+          "words": 1.7447916666666667,
+          "auctionsWon": 4.177083333333333,
+          "missedWindows": 6.973958333333333
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 50.52604166666668,
+          "ci95": [
+            46.98958333333332,
+            53.911458333333336
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.2552083333333333,
+          "ci95": [
+            0.20833333333333334,
+            0.3020833333333332
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.24479166666666663,
+          "ci95": [
+            0.19791666666666674,
+            0.2864583333333333
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.24999999999999997,
+          "ci95": [
+            0.20312500000000006,
+            0.2916666666666667
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4604166666666667,
+          "ci95": [
+            0.4223958333333334,
+            0.4989583333333333
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 23434,
+        "wordCalls": 24349,
+        "bidMaxMs": 83.63814400000047,
+        "wordMaxMs": 13.262768000000051
+      },
+      "workerElapsedMs": 37546.656766
+    },
+    {
+      "id": "Vickrey-frontier-mixed-one-word",
+      "auctionType": "Vickrey",
+      "league": "frontier-mixed",
+      "stress": "one-word",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 100.52083333333333,
+          "serverWin": 0.3072916666666667,
+          "outrightWin": 0.296875,
+          "fractionalWin": 0.3020833333333333,
+          "pairwise": 0.7546874999999994,
+          "rank": 2.203125,
+          "midRank": 2.2265625,
+          "spent": 133.58854166666666,
+          "balance": 66.93229166666667,
+          "leftoverTiles": 0.3125,
+          "words": 3.1822916666666665,
+          "auctionsWon": 13.625,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 45.390625,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.2703124999999999,
+          "rank": 4.630208333333333,
+          "midRank": 4.6484375,
+          "spent": 38.666666666666664,
+          "balance": 106.72395833333333,
+          "leftoverTiles": 0.15625,
+          "words": 1.7395833333333333,
+          "auctionsWon": 4.197916666666667,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 55.13020833333333,
+          "ci95": [
+            51.09375,
+            59.072916666666664
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.3072916666666667,
+          "ci95": [
+            0.2604166666666666,
+            0.3541666666666667
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.296875,
+          "ci95": [
+            0.24479166666666669,
+            0.34375000000000006
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.3020833333333333,
+          "ci95": [
+            0.25260416666666663,
+            0.34895833333333337
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.48437499999999994,
+          "ci95": [
+            0.4442708333333334,
+            0.5250000000000001
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 26112,
+        "bidMaxMs": 24.023529000001872,
+        "wordMaxMs": 10.451548999999886
+      },
+      "workerElapsedMs": 44965.593613
+    },
+    {
+      "id": "FirstPrice-server-mixed-ideal",
+      "auctionType": "FirstPrice",
+      "league": "server-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 163.59895833333334,
+          "serverWin": 1,
+          "outrightWin": 1,
+          "fractionalWin": 1,
+          "pairwise": 1,
+          "rank": 1,
+          "midRank": 1,
+          "spent": 239.98958333333334,
+          "balance": 23.609375,
+          "leftoverTiles": 1.046875,
+          "words": 6.682291666666667,
+          "auctionsWon": 29.276041666666668,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 100.58333333333333,
+          "serverWin": 0.7552083333333334,
+          "outrightWin": 0.7552083333333334,
+          "fractionalWin": 0.7552083333333334,
+          "pairwise": 0.9296874999999999,
+          "rank": 1.3489583333333333,
+          "midRank": 1.3515625,
+          "spent": 106.30208333333333,
+          "balance": 94.28125,
+          "leftoverTiles": 0.17708333333333334,
+          "words": 3.21875,
+          "auctionsWon": 13.921875,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 63.01562500000002,
+          "ci95": [
+            56.63541666666666,
+            69.53645833333333
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.2447916666666667,
+          "ci95": [
+            0.18229166666666666,
+            0.31249999999999994
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.2447916666666667,
+          "ci95": [
+            0.18229166666666666,
+            0.31249999999999994
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.2447916666666667,
+          "ci95": [
+            0.18229166666666666,
+            0.31249999999999994
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.07031250000000001,
+          "ci95": [
+            0.05156249999999998,
+            0.08906250000000002
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 28013,
+        "bidMaxMs": 23.1391450000001,
+        "wordMaxMs": 8.118337999999994
+      },
+      "workerElapsedMs": 10725.625479999999
+    },
+    {
+      "id": "FirstPrice-smart-mixed-ideal",
+      "auctionType": "FirstPrice",
+      "league": "smart-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 161.65104166666666,
+          "serverWin": 0.828125,
+          "outrightWin": 0.8072916666666666,
+          "fractionalWin": 0.8177083333333334,
+          "pairwise": 0.9625000000000007,
+          "rank": 1.1770833333333333,
+          "midRank": 1.1875,
+          "spent": 207.953125,
+          "balance": 53.697916666666664,
+          "leftoverTiles": 0.5677083333333334,
+          "words": 5.427083333333333,
+          "auctionsWon": 26.473958333333332,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 63.171875,
+          "serverWin": 0.005208333333333333,
+          "outrightWin": 0.005208333333333333,
+          "fractionalWin": 0.005208333333333333,
+          "pairwise": 0.5776041666666659,
+          "rank": 3.0989583333333335,
+          "midRank": 3.1119791666666665,
+          "spent": 59.4375,
+          "balance": 103.734375,
+          "leftoverTiles": 0.11458333333333333,
+          "words": 2.5885416666666665,
+          "auctionsWon": 8.255208333333334,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 98.47916666666666,
+          "ci95": [
+            92.80208333333336,
+            104.05208333333334
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.8229166666666665,
+          "ci95": [
+            0.765625,
+            0.8749999999999999
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.8020833333333331,
+          "ci95": [
+            0.7343749999999999,
+            0.8645833333333331
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.8124999999999999,
+          "ci95": [
+            0.7526041666666665,
+            0.8671875
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.3848958333333334,
+          "ci95": [
+            0.3552083333333333,
+            0.4140625000000001
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27651,
+        "bidMaxMs": 55.565897999998924,
+        "wordMaxMs": 8.570341000000099
+      },
+      "workerElapsedMs": 36326.156925
+    },
+    {
+      "id": "FirstPrice-frozen-mirror-ideal",
+      "auctionType": "FirstPrice",
+      "league": "frozen-mirror",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 80.9375,
+          "serverWin": 0.16666666666666666,
+          "outrightWin": 0.16666666666666666,
+          "fractionalWin": 0.16666666666666666,
+          "pairwise": 0.5,
+          "rank": 3.4739583333333335,
+          "midRank": 3.5,
+          "spent": 86.09895833333333,
+          "balance": 94.83854166666667,
+          "leftoverTiles": 0.13020833333333334,
+          "words": 2.6770833333333335,
+          "auctionsWon": 10.96875,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 40.703125,
+          "serverWin": 0.005208333333333333,
+          "outrightWin": 0.005208333333333333,
+          "fractionalWin": 0.005208333333333333,
+          "pairwise": 0.06614583333333329,
+          "rank": 5.645833333333333,
+          "midRank": 5.669270833333333,
+          "spent": 31.161458333333332,
+          "balance": 109.54166666666667,
+          "leftoverTiles": 0.0625,
+          "words": 1.9895833333333333,
+          "auctionsWon": 4.40625,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 40.234375,
+          "ci95": [
+            37.755208333333336,
+            42.43229166666668
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.16145833333333334,
+          "ci95": [
+            0.15104166666666666,
+            0.16666666666666669
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.16145833333333334,
+          "ci95": [
+            0.15104166666666666,
+            0.16666666666666669
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.16145833333333334,
+          "ci95": [
+            0.15104166666666666,
+            0.16666666666666669
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4338541666666667,
+          "ci95": [
+            0.4088541666666667,
+            0.45572916666666674
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27008,
+        "bidMaxMs": 20.109111999998277,
+        "wordMaxMs": 9.14086199999997
+      },
+      "workerElapsedMs": 66462.04854100001
+    },
+    {
+      "id": "FirstPrice-frontier-mixed-ideal",
+      "auctionType": "FirstPrice",
+      "league": "frontier-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 103.328125,
+          "serverWin": 0.3958333333333333,
+          "outrightWin": 0.3958333333333333,
+          "fractionalWin": 0.3958333333333333,
+          "pairwise": 0.7812499999999999,
+          "rank": 2.0833333333333335,
+          "midRank": 2.09375,
+          "spent": 124.43229166666667,
+          "balance": 78.89583333333333,
+          "leftoverTiles": 0.3697916666666667,
+          "words": 3.1822916666666665,
+          "auctionsWon": 13.453125,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 41.807291666666664,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.31302083333333336,
+          "rank": 4.411458333333333,
+          "midRank": 4.434895833333333,
+          "spent": 31.796875,
+          "balance": 110.01041666666667,
+          "leftoverTiles": 0.09375,
+          "words": 1.6510416666666667,
+          "auctionsWon": 3.7604166666666665,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 61.520833333333336,
+          "ci95": [
+            57.8125,
+            65.47916666666666
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.3958333333333333,
+          "ci95": [
+            0.3333333333333333,
+            0.4635416666666666
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.3958333333333333,
+          "ci95": [
+            0.3333333333333333,
+            0.4635416666666666
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.3958333333333333,
+          "ci95": [
+            0.3333333333333333,
+            0.4635416666666666
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4682291666666667,
+          "ci95": [
+            0.43020833333333336,
+            0.5057291666666666
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27040,
+        "bidMaxMs": 35.22287000000142,
+        "wordMaxMs": 8.373270000000048
+      },
+      "workerElapsedMs": 28711.588339
+    },
+    {
+      "id": "FirstPrice-portfolio-mixed-ideal",
+      "auctionType": "FirstPrice",
+      "league": "portfolio-mixed",
+      "stress": "ideal",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 127.5,
+          "serverWin": 0.546875,
+          "outrightWin": 0.53125,
+          "fractionalWin": 0.5390625,
+          "pairwise": 0.8953125000000007,
+          "rank": 1.515625,
+          "midRank": 1.5234375,
+          "spent": 163.07291666666666,
+          "balance": 64.42708333333333,
+          "leftoverTiles": 0.5208333333333334,
+          "words": 3.9427083333333335,
+          "auctionsWon": 17.833333333333332,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 52.765625,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.5062499999999998,
+          "rank": 3.4479166666666665,
+          "midRank": 3.46875,
+          "spent": 47.078125,
+          "balance": 105.6875,
+          "leftoverTiles": 0.14583333333333334,
+          "words": 2.0052083333333335,
+          "auctionsWon": 5.416666666666667,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 74.73437500000001,
+          "ci95": [
+            69.88020833333331,
+            79.55729166666666
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.546875,
+          "ci95": [
+            0.4739583333333333,
+            0.6197916666666666
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.53125,
+          "ci95": [
+            0.45312500000000017,
+            0.6093749999999999
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.5390625,
+          "ci95": [
+            0.4661458333333333,
+            0.6145833333333333
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.38906250000000003,
+          "ci95": [
+            0.35885416666666675,
+            0.41875000000000007
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 27254,
+        "bidMaxMs": 31.973381000003428,
+        "wordMaxMs": 8.12542899999994
+      },
+      "workerElapsedMs": 21475.380465
+    },
+    {
+      "id": "FirstPrice-frontier-mixed-miss-10pct",
+      "auctionType": "FirstPrice",
+      "league": "frontier-mixed",
+      "stress": "miss-10pct",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 101.41666666666667,
+          "serverWin": 0.3958333333333333,
+          "outrightWin": 0.3854166666666667,
+          "fractionalWin": 0.390625,
+          "pairwise": 0.7937499999999994,
+          "rank": 2.015625,
+          "midRank": 2.03125,
+          "spent": 122.984375,
+          "balance": 78.43229166666667,
+          "leftoverTiles": 0.40625,
+          "words": 3.1458333333333335,
+          "auctionsWon": 13.416666666666666,
+          "missedWindows": 6.973958333333333
+        },
+        "original": {
+          "score": 45.677083333333336,
+          "serverWin": 0.010416666666666666,
+          "outrightWin": 0.010416666666666666,
+          "fractionalWin": 0.010416666666666666,
+          "pairwise": 0.3312500000000003,
+          "rank": 4.3125,
+          "midRank": 4.34375,
+          "spent": 37.182291666666664,
+          "balance": 108.49479166666667,
+          "leftoverTiles": 0.10416666666666667,
+          "words": 1.8177083333333333,
+          "auctionsWon": 4.515625,
+          "missedWindows": 6.973958333333333
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 55.739583333333336,
+          "ci95": [
+            51.843750000000014,
+            59.95833333333334
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.3854166666666666,
+          "ci95": [
+            0.3125,
+            0.4635416666666667
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.3749999999999999,
+          "ci95": [
+            0.3020833333333333,
+            0.45312500000000006
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.38020833333333326,
+          "ci95": [
+            0.3072916666666667,
+            0.45833333333333337
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4625,
+          "ci95": [
+            0.4270833333333333,
+            0.4984375
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 23434,
+        "wordCalls": 24387,
+        "bidMaxMs": 45.23237700000027,
+        "wordMaxMs": 8.453608000000031
+      },
+      "workerElapsedMs": 27441.883212
+    },
+    {
+      "id": "FirstPrice-frontier-mixed-one-word",
+      "auctionType": "FirstPrice",
+      "league": "frontier-mixed",
+      "stress": "one-word",
+      "gamesPerPolicy": 192,
+      "independentDeals": 32,
+      "policy": {
+        "frozen": {
+          "score": 103.47395833333333,
+          "serverWin": 0.3958333333333333,
+          "outrightWin": 0.3958333333333333,
+          "fractionalWin": 0.3958333333333333,
+          "pairwise": 0.7833333333333332,
+          "rank": 2.0729166666666665,
+          "midRank": 2.0833333333333335,
+          "spent": 124.97395833333333,
+          "balance": 78.5,
+          "leftoverTiles": 0.3802083333333333,
+          "words": 3.1770833333333335,
+          "auctionsWon": 13.520833333333334,
+          "missedWindows": 0
+        },
+        "original": {
+          "score": 41.807291666666664,
+          "serverWin": 0,
+          "outrightWin": 0,
+          "fractionalWin": 0,
+          "pairwise": 0.31302083333333336,
+          "rank": 4.411458333333333,
+          "midRank": 4.434895833333333,
+          "spent": 31.796875,
+          "balance": 110.01041666666667,
+          "leftoverTiles": 0.09375,
+          "words": 1.6510416666666667,
+          "auctionsWon": 3.7604166666666665,
+          "missedWindows": 0
+        }
+      },
+      "pairedFrozenMinusOriginal": {
+        "score": {
+          "mean": 61.666666666666664,
+          "ci95": [
+            57.98437499999999,
+            65.59375000000001
+          ],
+          "independentDeals": 32
+        },
+        "serverWin": {
+          "mean": 0.3958333333333333,
+          "ci95": [
+            0.3333333333333333,
+            0.4635416666666666
+          ],
+          "independentDeals": 32
+        },
+        "outrightWin": {
+          "mean": 0.3958333333333333,
+          "ci95": [
+            0.3333333333333333,
+            0.4635416666666666
+          ],
+          "independentDeals": 32
+        },
+        "fractionalWin": {
+          "mean": 0.3958333333333333,
+          "ci95": [
+            0.3333333333333333,
+            0.4635416666666666
+          ],
+          "independentDeals": 32
+        },
+        "pairwise": {
+          "mean": 0.4703125,
+          "ci95": [
+            0.43281249999999993,
+            0.5072916666666667
+          ],
+          "independentDeals": 32
+        }
+      },
+      "latency": {
+        "bidCalls": 26112,
+        "wordCalls": 26112,
+        "bidMaxMs": 63.25426900000093,
+        "wordMaxMs": 15.641947999996773
+      },
+      "workerElapsedMs": 29889.326738
+    }
+  ],
+  "limitations": [
+    "Offline source-pinned model, no tournament or live-server claims.",
+    "Source parity harness mocks DB scheduling, permissions, authentication and rating updates; not a full SpacetimeDB integration test.",
+    "No actual entrant strategies or live observations in this league.",
+    "Portfolio exact rack partition falls back to longest-word reward above 16 tiles.",
+    "The public-price adaptive opponent is synthetic, not fitted to live market data.",
+    "Fresh evaluation uses a modest number of independent deals; six seats are correlated.",
+    "Existing policy is frozen. We do not promote a new winner based on this evaluation."
+  ]
+}

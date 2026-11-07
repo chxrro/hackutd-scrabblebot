@@ -1,0 +1,37 @@
+{
+  "repository": "https://github.com/clockworklabs/scrabblebot",
+  "commit": "b5ccb36aa238ad16692f8d6af54da15ef9f11324",
+  "retrieval": "GitHub connector fetch_file, 2026-11-07",
+  "files": [
+    {
+      "file": "server-game.ts",
+      "upstream_url": "https://github.com/clockworklabs/scrabblebot/blob/b5ccb36aa238ad16692f8d6af54da15ef9f11324/spacetimedb/src/game.ts",
+      "sha256": "bf851825e9852289c836de33fc61543aa14be6c4b6e5e86abecfe5562413e184",
+      "local_git_blob_sha1": "2b471e99ad526f81f5708abf3c24226a1c30d681"
+    },
+    {
+      "file": "server-letters.ts",
+      "upstream_url": "https://github.com/clockworklabs/scrabblebot/blob/b5ccb36aa238ad16692f8d6af54da15ef9f11324/spacetimedb/src/letters.ts",
+      "sha256": "102784fcfe2ce0fca2daa9d9e93ed93ebd4157f4b30b663128fa52cf27fcd630",
+      "local_git_blob_sha1": "203985d1c2c7aa4dca8a3dd064c9a8ccf7c1475e"
+    },
+    {
+      "file": "server-dictionary.ts",
+      "upstream_url": "https://github.com/clockworklabs/scrabblebot/blob/b5ccb36aa238ad16692f8d6af54da15ef9f11324/spacetimedb/src/dictionary.ts",
+      "sha256": "316c509912dc45b75da83fe22c4e816231745f41790a734ea1edec38ab84b654",
+      "local_git_blob_sha1": "19d9d64229cf65cf732e911444b633c4d7c9a5a1"
+    },
+    {
+      "file": "server-index.ts",
+      "upstream_url": "https://github.com/clockworklabs/scrabblebot/blob/b5ccb36aa238ad16692f8d6af54da15ef9f11324/spacetimedb/src/index.ts",
+      "sha256": "be9469999604a1aa07ba0bfbfee2748d541058dbdb7eeb72f1bc9fd2eae95629",
+      "local_git_blob_sha1": "7e2b14b98c8de0dab49eb853a3259333c4a50429"
+    },
+    {
+      "file": "server-text.ts",
+      "upstream_url": "https://github.com/clockworklabs/scrabblebot/blob/b5ccb36aa238ad16692f8d6af54da15ef9f11324/spacetimedb/src/text.ts",
+      "sha256": "7fee61325305530ace42fb7e5d5e376cf6141ec20bc3ccce8d7ae53832c8cffe",
+      "local_git_blob_sha1": "91be597bd4b2f8b419d30b32e99caa1e0a3a1dd9"
+    }
+  ]
+}

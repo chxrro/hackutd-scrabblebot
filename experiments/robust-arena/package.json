@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --import tsx --test experiment.test.ts tests/*.test.ts",
+    "build": "tsc --noEmit",
+    "evaluate": "node --import tsx evaluate.ts"
+  },
+  "devDependencies": {
+    "tsx": "4.22.3",
+    "typescript": "5.9.3",
+    "@types/node": "20.19.41"
+  }
+}
