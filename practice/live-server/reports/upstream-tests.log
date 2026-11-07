@@ -1,0 +1,63 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> scrabblebot-module@0.1.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /workspace/scratch/af8ac4a3fcab/scrabblebot-live-practice/upstream/spacetimedb
+
+ ✓ src/tests/admins.test.ts (14 tests) 932ms
+ ✓ src/tests/teams.test.ts (31 tests) 1304ms
+ ✓ src/tests/ratings.test.ts (17 tests) 2231ms
+   ✓ finishing a real match rates everyone in it  732ms
+   ✓ backfill elo replays history to the same result  953ms
+ ✓ src/tests/pure.test.ts (13 tests) 558ms
+ ✓ src/tests/registration.test.ts (17 tests) 3037ms
+   ✓ round one waits for entrants in running matches  808ms
+   ✓ a team with a bot in a tournament cannot dissolve  563ms
+   ✓ a team can dissolve once its bot is knocked out  362ms
+   ✓ dissolving a team keeps its entries in finished tournaments  318ms
+ ✓ src/tests/auctions.test.ts (20 tests) 4156ms
+   ✓ ties are broken at random  427ms
+   ✓ a match ends when the bag is empty  642ms
+   ✓ every tile is accounted for at the end of a match  401ms
+   ✓ balances equal start minus spend plus score  341ms
+   ✓ ending a match publishes its top bids  365ms
+   ✓ matches are deterministic for a given seed  575ms
+ ✓ src/tests/views.test.ts (8 tests) 1905ms
+   ✓ my rack shows only the callers tiles across matches  304ms
+   ✓ finished matches drop out of the live top bids  996ms
+ ✓ src/tests/lobbies.test.ts (22 tests) 4329ms
+   ✓ bots can rejoin once their match ends  1357ms
+   ✓ a bot whose team dissolves in the lobby does not break the match  521ms
+   ✓ entrants cannot join the lobby once their tournament starts  361ms
+ ✓ src/tests/matchmaker.test.ts (5 tests) 581ms
+ ✓ src/tests/words.test.ts (8 tests) 1486ms
+   ✓ longer words earn a multiplier  375ms
+   ✓ no words after the match ends  647ms
+ ✓ src/tests/tournaments.test.ts (11 tests) 6571ms
+   ✓ swiss matches award points by placing  824ms
+   ✓ the next swiss round starts when the last match ends  1282ms
+   ✓ a full tournament runs from swiss to a single champion  2318ms
+   ✓ the top cut keeps the best swiss records  391ms
+   ✓ a tournament with an awkward field still finishes  1387ms
+ ✓ src/tests/finals.test.ts (12 tests) 7245ms
+   ✓ a cut to two goes straight to the final  1399ms
+   ✓ finals matches wait for the admin  705ms
+   ✓ an elimination match knocks out last place with tiebreaks  1068ms
+   ✓ the final goes to the best score over its games  865ms
+   ✓ a drawn final goes to total score  510ms
+   ✓ a finished tournament has placings for its finalists  1435ms
+   ✓ force ending stops a tournament where it is  315ms
+   ✓ a force ended tournament ignores its finals match  557ms
+
+ Test Files  12 passed (12)
+      Tests  178 passed (178)
+   Start at  16:02:24
+   Duration  9.03s (transform 2.88s, setup 0ms, collect 12.60s, tests 34.34s, environment 2ms, prepare 1.59s)
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "client/**/*.ts",
+    "policies/**/*.ts",
+    "bot-starter/src/**/*.ts"
+  ]
+}

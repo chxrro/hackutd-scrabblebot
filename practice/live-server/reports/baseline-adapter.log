@@ -1,0 +1,136 @@
+[baseline] indexed 172820 dictionary words
+[baseline] connecting to scrabblebot-practice at http://127.0.0.1:3300
+ℹ️ INFO Connecting to SpacetimeDB WS...
+[baseline] connected as c200c42107d26592c42411d105950ae7fbf47e538c91de7f1c65031d990907b6
+[baseline] subscription applied
+[baseline] acting as bot 'baseline' (id 7)
+[baseline] bid 10 on 'T' (match 1, auction 2)
+[baseline] match 1 auction 1 'Z' → bot 9 paid 31
+[baseline] match 1 auction 2 'T' → bot 7 paid 8
+[baseline] match 1 auction 3 'A' → bot 9 paid 8
+[baseline] bid 10 on 'P' (match 1, auction 4)
+[baseline] match 1 auction 4 'P' → bot 8 paid 12
+[baseline] bid 6 on 'T' (match 1, auction 5)
+[baseline] match 1 auction 5 'T' → bot 8 paid 10
+[baseline] bid 6 on 'I' (match 1, auction 6)
+[baseline] match 1 auction 6 'I' → bot 12 paid 6
+[baseline] bid 6 on 'I' (match 1, auction 7)
+[baseline] match 1 auction 7 'I' → bot 7 paid 5
+[baseline] bid 2 on 'I' (match 1, auction 8)
+[baseline] match 1: playing 'ENTRAIN' for 21 points
+[baseline] match 1 auction 8 'I' → bot 10 paid 4
+[baseline] bid 6 on 'Q' (match 1, auction 9)
+[baseline] match 1 auction 9 'Q' → bot 8 paid 19
+[baseline] bid 4 on 'E' (match 1, auction 10)
+[baseline] match 1 auction 10 'E' → bot 9 paid 10
+[baseline] bid 6 on 'M' (match 1, auction 11)
+[baseline] match 1 auction 11 'M' → bot 8 paid 11
+[baseline] bid 4 on 'U' (match 1, auction 12)
+[baseline] match 1 auction 12 'U' → bot 8 paid 6
+[baseline] bid 4 on 'V' (match 1, auction 13)
+[baseline] match 1 auction 13 'V' → bot 9 paid 10
+[baseline] bid 4 on 'E' (match 1, auction 14)
+[baseline] match 1 auction 14 'E' → bot 10 paid 8
+[baseline] bid 3 on 'S' (match 1, auction 15)
+[baseline] match 1 auction 15 'S' → bot 11 paid 13
+[baseline] bid 3 on 'L' (match 1, auction 16)
+[baseline] match 1 auction 16 'L' → bot 8 paid 9
+[baseline] bid 4 on 'V' (match 1, auction 17)
+[baseline] match 1 auction 17 'V' → bot 8 paid 9
+[baseline] bid 4 on 'A' (match 1, auction 18)
+[baseline] match 1 auction 18 'A' → bot 8 paid 12
+[baseline] bid 3 on 'S' (match 1, auction 19)
+[baseline] match 1 auction 19 'S' → bot 12 paid 9
+[baseline] bid 3 on 'R' (match 1, auction 20)
+[baseline] match 1 auction 20 'R' → bot 12 paid 7
+[baseline] bid 4 on 'U' (match 1, auction 21)
+[baseline] match 1 auction 21 'U' → bot 9 paid 4
+[baseline] bid 4 on 'I' (match 1, auction 22)
+[baseline] match 1 auction 22 'I' → bot 11 paid 4
+[baseline] bid 3 on 'R' (match 1, auction 23)
+[baseline] match 1 auction 23 'R' → bot 12 paid 7
+[baseline] bid 4 on 'A' (match 1, auction 24)
+[baseline] match 1 auction 24 'A' → bot 11 paid 6
+[baseline] bid 4 on 'A' (match 1, auction 25)
+[baseline] match 1 auction 25 'A' → bot 12 paid 5
+[baseline] bid 4 on 'O' (match 1, auction 26)
+[baseline] match 1 auction 26 'O' → bot 12 paid 6
+[baseline] bid 7 on 'Y' (match 1, auction 27)
+[baseline] match 1 auction 27 'Y' → bot 9 paid 15
+[baseline] bid 4 on 'E' (match 1, auction 28)
+[baseline] match 1 auction 28 'E' → bot 9 paid 6
+[baseline] bid 3 on 'N' (match 1, auction 29)
+[baseline] match 1 auction 29 'N' → bot 12 paid 7
+[baseline] bid 7 on 'W' (match 1, auction 30)
+[baseline] match 1 auction 30 'W' → bot 9 paid 14
+[baseline] bid 4 on 'E' (match 1, auction 31)
+[baseline] match 1 auction 31 'E' → bot 11 paid 5
+[baseline] bid 4 on 'D' (match 1, auction 32)
+[baseline] match 1 auction 32 'D' → bot 12 paid 8
+[baseline] bid 4 on 'I' (match 1, auction 33)
+[baseline] match 1 auction 33 'I' → bot 9 paid 5
+[baseline] bid 4 on 'I' (match 1, auction 34)
+[baseline] match 1 auction 34 'I' → bot 12 paid 4
+[baseline] bid 4 on 'G' (match 1, auction 35)
+[baseline] match 1 auction 35 'G' → bot 9 paid 7
+[baseline] bid 4 on 'A' (match 1, auction 36)
+[baseline] match 1 auction 36 'A' → bot 9 paid 7
+[baseline] bid 3 on 'R' (match 1, auction 37)
+[baseline] match 1 auction 37 'R' → bot 9 paid 8
+[baseline] bid 4 on 'A' (match 1, auction 38)
+[baseline] match 1 auction 38 'A' → bot 12 paid 6
+[baseline] bid 4 on 'U' (match 1, auction 39)
+[baseline] match 1 auction 39 'U' → bot 7 paid 4
+[baseline] bid 5 on 'N' (match 1, auction 40)
+[baseline] match 1 auction 40 'N' → bot 9 paid 8
+[baseline] bid 9 on 'M' (match 1, auction 41)
+[baseline] match 1 auction 41 'M' → bot 9 paid 10
+[baseline] bid 11 on 'H' (match 1, auction 42)
+[baseline] match 1 auction 42 'H' → bot 9 paid 14
+[baseline] bid 5 on 'T' (match 1, auction 43)
+[baseline] match 1 auction 43 'T' → bot 9 paid 8
+[baseline] bid 5 on 'S' (match 1, auction 44)
+[baseline] match 1 auction 44 'S' → bot 8 paid 8
+[baseline] bid 5 on 'S' (match 1, auction 45)
+[baseline] match 1 auction 45 'S' → bot 11 paid 8
+[baseline] bid 4 on 'L' (match 1, auction 46)
+[baseline] match 1 auction 46 'L' → bot 11 paid 5
+[baseline] bid 8 on 'F' (match 1, auction 47)
+[baseline] match 1 auction 47 'F' → bot 11 paid 14
+[baseline] bid 7 on 'C' (match 1, auction 48)
+[baseline] match 1 auction 48 'C' → bot 9 paid 10
+[baseline] bid 8 on 'F' (match 1, auction 49)
+[baseline] match 1 auction 49 'F' → bot 8 paid 14
+[baseline] bid 1 on 'O' (match 1, auction 50)
+[baseline] match 1 auction 50 'O' → bot 8 paid 6
+[baseline] bid 1 on 'E' (match 1, auction 51)
+[baseline] match 1 auction 51 'E' → bot 8 paid 6
+[baseline] bid 1 on 'O' (match 1, auction 52)
+[baseline] match 1 auction 52 'O' → bot 11 paid 6
+[baseline] bid 5 on 'G' (match 1, auction 53)
+[baseline] match 1 auction 53 'G' → bot 9 paid 7
+[baseline] bid 7 on 'B' (match 1, auction 54)
+[baseline] match 1 auction 54 'B' → bot 9 paid 11
+[baseline] bid 1 on 'O' (match 1, auction 55)
+[baseline] match 1 auction 55 'O' → bot 9 paid 5
+[baseline] bid 9 on 'P' (match 1, auction 56)
+[baseline] match 1 auction 56 'P' → bot 9 paid 11
+[baseline] bid 1 on 'E' (match 1, auction 57)
+[baseline] match 1 auction 57 'E' → bot 9 paid 8
+[baseline] bid 5 on 'G' (match 1, auction 58)
+[baseline] match 1 auction 58 'G' → bot 8 paid 6
+[baseline] match 1 auction 59 'U' → bot 9 paid 8
+[baseline] bid 2 on 'D' (match 1, auction 60)
+[baseline] match 1 auction 60 'D' → bot 10 paid 13
+[baseline] bid 2 on 'D' (match 1, auction 61)
+[baseline] match 1 auction 61 'D' → bot 8 paid 7
+[baseline] match 1 auction 62 'E' → bot 11 paid 7
+[baseline] match 1 auction 63 'E' → bot 10 paid 5
+[baseline] match 1 auction 64 'E' → bot 12 paid 4
+[baseline] bid 10 on 'T' (match 1, auction 65)
+[baseline] match 1 auction 65 'T' → bot 7 paid 10
+[baseline] match 1: playing 'UT' for 2 points
+[baseline] match 1 auction 66 'R' → bot no-bid paid 0
+[baseline] match 1 auction 67 'D' → bot 12 paid 1
+[baseline] match 1 auction 68 'A' → bot no-bid paid 0
+[baseline] match 1 ended; rejoining lobby

@@ -1,0 +1,108 @@
+{
+  "kind": "real SpacetimeDB integration",
+  "serverVersion": "2.14.1",
+  "upstreamCommit": "b5ccb36aa238ad16692f8d6af54da15ef9f11324",
+  "started": "2026-11-07T22:10:06.222Z",
+  "completed": "2026-11-07T22:11:14.591Z",
+  "dictionaryWords": 172820,
+  "checks": [
+    "Anonymous observer sees no private rack",
+    "Direct subscription to private Holding table denied",
+    "Six real WebSocket clients registered and received private five-tile racks",
+    "Disconnect/reconnect retained identity and restored subscriptions using memory-only token",
+    "Official scheduler completed full match; legal bids and words committed; post-end actions rejected",
+    "Standalone server stopped cleanly after client close handshakes"
+  ],
+  "rejected": [
+    {
+      "test": "uncredentialed lobby entry",
+      "message": "Your identity is not a credential for any bot"
+    },
+    {
+      "test": "negative bid",
+      "message": "Bid must be non-negative"
+    },
+    {
+      "test": "over-budget bid",
+      "message": "Insufficient balance"
+    },
+    {
+      "test": "one-letter word",
+      "message": "Word must be at least 2 letters"
+    },
+    {
+      "test": "non-ASCII word",
+      "message": "Word must be A-Z only"
+    },
+    {
+      "test": "valid word requiring unavailable tiles",
+      "message": "Not enough 'J': need 1, have 0"
+    },
+    {
+      "test": "word after final shutdown",
+      "message": "Match not running"
+    },
+    {
+      "test": "bid against closed auction",
+      "message": "Auction closed"
+    }
+  ],
+  "actions": {
+    "bids": 368,
+    "words": 17,
+    "unexpectedErrors": []
+  },
+  "matches": [
+    {
+      "id": "1",
+      "rounds": 68,
+      "bagRemaining": 0,
+      "auctionType": "Vickrey",
+      "players": [
+        {
+          "botId": "12",
+          "name": "opponent-5",
+          "score": 39,
+          "balance": 93
+        },
+        {
+          "botId": "7",
+          "name": "challenger",
+          "score": 132,
+          "balance": 41
+        },
+        {
+          "botId": "8",
+          "name": "opponent-1",
+          "score": 118,
+          "balance": 85
+        },
+        {
+          "botId": "9",
+          "name": "opponent-2",
+          "score": 89,
+          "balance": 62
+        },
+        {
+          "botId": "10",
+          "name": "opponent-3",
+          "score": 27,
+          "balance": 117
+        },
+        {
+          "botId": "11",
+          "name": "opponent-4",
+          "score": 55,
+          "balance": 56
+        }
+      ]
+    }
+  ],
+  "reconnections": 1,
+  "latencySummaryMs": {
+    "n": 385,
+    "p50": 2.675800999997591,
+    "p95": 11.512076000006346,
+    "max": 32.739354000001185
+  }
+}

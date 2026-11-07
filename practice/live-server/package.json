@@ -1,0 +1,28 @@
+{
+  "name": "scrabblebot-live-practice",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bash scripts/run-local.sh",
+    "test:live": "bash scripts/run-local.sh --test",
+    "build": "tsc --noEmit",
+    "test:upstream": "npm test --prefix upstream/spacetimedb",
+    "setup": "bash scripts/setup.sh",
+    "start:challenger": "PRACTICE_POLICY=policies/challenger_policy.ts bash scripts/run-local.sh",
+    "test:challenger": "PRACTICE_POLICY=policies/challenger_policy.ts bash scripts/run-local.sh --test",
+    "test:adapter": "PRACTICE_ADAPTER=1 bash scripts/run-local.sh --test"
+  },
+  "dependencies": {
+    "spacetimedb": "2.14.1",
+    "ws": "8.18.3"
+  },
+  "devDependencies": {
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "@types/node": "22.20.5",
+    "@types/ws": "8.18.1"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}
