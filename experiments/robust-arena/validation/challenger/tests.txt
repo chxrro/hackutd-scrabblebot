@@ -1,0 +1,53 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test
+> node --import tsx --test experiment.test.ts tests/*.test.ts
+
+✔ trained bid bounded and finite across tiny balances and invalid/final letters (17.609424ms)
+✔ dictionary word selection is legal and consumes no input state (0.702966ms)
+✔ paired arena is reproducible (46.224374ms)
+✔ arena conserves balance given game score and auction spending (52.260662ms)
+✔ external bot gets no word callback after buying the final tile (1.12814ms)
+✔ frozen runtime uses exactly the selected learned weights (8.734761ms)
+✔ frozen policy late liquidation is deliberate and legal (2.056256ms)
+✔ v2 deterministic including complete trace (16.815882ms)
+✔ all seats get identical deal and independent jitter, ties, and stress draws (10.781678ms)
+✔ zero bids discard all tiles; callbacks exclude current tile (0.453978ms)
+✔ fractional and shared wins distinguish ties correctly (1.269654ms)
+✔ callbacks have no hidden opponent state and observe only public payments (1.527325ms)
+✔ one word per window and total missed windows are explicit stresses (0.877079ms)
+✔ stateful factories reset match observations (3.394944ms)
+✔ exact portfolio partition can beat longest-word reward (0.764669ms)
+✔ v2 legality, money and per-letter conservation across leagues and auctions (130.050508ms)
+✔ reject invalid bids, words, priorities, and setup (0.747703ms)
+✔ exported challenger selects exactly the frozen parameters for each auction (74.318756ms)
+✔ exported challenger defaults omitted auction type to Vickrey (0.476282ms)
+✔ drop-in challenger and evaluated model produce identical complete game traces (48.320381ms)
+✔ challenger populations are deterministic and split-disjoint by complete profile (4.561922ms)
+✔ challenger league factories reset all adaptive state between games (68.973697ms)
+✔ challenger populations reject unknown league names (0.471975ms)
+✔ FirstPrice: closeAuction matches mirror for zero bids, reserve, ties and price (50.73203ms)
+✔ Vickrey: closeAuction matches mirror for zero bids, reserve, ties and price (13.591046ms)
+✔ shuffle-then-sort permits every tied bidder to win and excludes zero bids (2.606571ms)
+✔ all simulated strategies match actual bigint decideBid across letters, jitter and balances (2.728603ms)
+✔ all letter values and exact 98-tile distribution match upstream (0.329462ms)
+✔ playWord rewards use integer division, consume multiplicities and credit balance plus score (1.018841ms)
+✔ insufficient repeated letters fail before any mutation (0.451494ms)
+✔ actual submitWord callback validates dictionary, ASCII, length and multiplicity without mutation (1.217647ms)
+✔ actual submitBid callback rejects invalid bids and replaces rather than accumulates (0.785903ms)
+✔ last tile allows simulated winner to play before ending, but external bots cannot play afterward (2.049479ms)
+✔ drawLetter uses remaining multiplicity, decrements bag and ends at exhaustion (0.996057ms)
+✔ canonical dictionary matches server longest-then-lex ordering (35.939331ms)
+✔ archived generic dictionary preserves input-order ties (documented boundary) (29.910383ms)
+✔ nonfinal close opens and schedules next auction, allowing external play in its window (0.896939ms)
+✔ pinned upstream fixtures match recorded content and Git blob hashes (0.722398ms)
+✔ cluster bootstrap deterministic and exact on constant deal differences (20.327122ms)
+✔ six seats against identical policies give exact symmetric fractional and pairwise wins (77.373716ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1219.089781

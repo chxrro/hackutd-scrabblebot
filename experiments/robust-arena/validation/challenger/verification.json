@@ -1,0 +1,10 @@
+{
+  "verified": true,
+  "totalGames": 19296,
+  "finalGames": 6912,
+  "independentFinalDeals": 48,
+  "sourceAndBaselineHashesMatch": true,
+  "lockedWeightsMatch": true,
+  "aggregateIntervalsRecomputed": true,
+  "validationSelectionVerified": true
+}

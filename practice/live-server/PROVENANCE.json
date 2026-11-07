@@ -1,0 +1,232 @@
+{
+  "upstream": {
+    "repository": "https://github.com/clockworklabs/scrabblebot",
+    "commit": "b5ccb36aa238ad16692f8d6af54da15ef9f11324",
+    "sourceUnchanged": true,
+    "verifiedFiles": [
+      {
+        "path": "LICENSE",
+        "git_blob_sha1": "34b721d67363e2b8812617903772c81df3f4c551",
+        "sha256": "b2d05d20a9872c330c3f37c582a349b15de18111169b9bc825f2fe04608e1d1b"
+      },
+      {
+        "path": "spacetimedb/.cursor/rules/cli.mdc",
+        "git_blob_sha1": "ee4f8b4b2b56828bea53185712738ef328c67d71",
+        "sha256": "dcb1ace093fbb08cb0beef5dd0174f1ede518bedd2eaeddbe08875d291d71884"
+      },
+      {
+        "path": "spacetimedb/.cursor/rules/concepts.mdc",
+        "git_blob_sha1": "f4fbf36e43488c43206e3a14114fd90f85c3a963",
+        "sha256": "0340a126d7940ddbdee083f082ec5f14f14b16bf38835bccd459b41ee7bc333b"
+      },
+      {
+        "path": "spacetimedb/.cursor/rules/typescript-server.mdc",
+        "git_blob_sha1": "6e8a2b4241c3fb8e70bb88c6bd910b97a38afd3f",
+        "sha256": "77272c77cf5605d0334fb2a12715f01b61b87893e00f894a4417d18e39a2289f"
+      },
+      {
+        "path": "spacetimedb/.github/copilot-instructions.md",
+        "git_blob_sha1": "ba7bf2d20c568e338d21f6f2dcf7b9715c6c3662",
+        "sha256": "4cb7935731968fe8f03bb025437d9dbbae982b33d5eaabde7ad21bc4e409ab70"
+      },
+      {
+        "path": "spacetimedb/.windsurfrules",
+        "git_blob_sha1": "ba7bf2d20c568e338d21f6f2dcf7b9715c6c3662",
+        "sha256": "4cb7935731968fe8f03bb025437d9dbbae982b33d5eaabde7ad21bc4e409ab70"
+      },
+      {
+        "path": "spacetimedb/AGENTS.md",
+        "git_blob_sha1": "ba7bf2d20c568e338d21f6f2dcf7b9715c6c3662",
+        "sha256": "4cb7935731968fe8f03bb025437d9dbbae982b33d5eaabde7ad21bc4e409ab70"
+      },
+      {
+        "path": "spacetimedb/CLAUDE.md",
+        "git_blob_sha1": "ba7bf2d20c568e338d21f6f2dcf7b9715c6c3662",
+        "sha256": "4cb7935731968fe8f03bb025437d9dbbae982b33d5eaabde7ad21bc4e409ab70"
+      },
+      {
+        "path": "spacetimedb/package-lock.json",
+        "git_blob_sha1": "872cdb480bd9751d45df05f68727a84732da5aa2",
+        "sha256": "f337cb3dd7022613d8acf29c8da2bc01ba3028271fcc64603eddbfb79113f7f8"
+      },
+      {
+        "path": "spacetimedb/package.json",
+        "git_blob_sha1": "ff7292a3b94d5b3848c25d52a999bf2742a8584a",
+        "sha256": "cd270bd6dc294cf5bb30849e74a31bda0063a8f5abdf5af712fb72758746c8e6"
+      },
+      {
+        "path": "spacetimedb/pnpm-lock.yaml",
+        "git_blob_sha1": "2c1b1ce552c80d521c157075e9f97dd214e3e8b8",
+        "sha256": "93c1598cbf0455d95f52fe4c6da7cbe6418bfc731d3d21d8635560c9d80c2498"
+      },
+      {
+        "path": "spacetimedb/pnpm-workspace.yaml",
+        "git_blob_sha1": "5ed0b5af0d45919f64c66edfb16a5f4512461fa1",
+        "sha256": "ac02d96368617c760f093cfe61fdec64b6244007ab3553e0d6621f706f54a353"
+      },
+      {
+        "path": "spacetimedb/src/dictionary.ts",
+        "git_blob_sha1": "19d9d64229cf65cf732e911444b633c4d7c9a5a1",
+        "sha256": "316c509912dc45b75da83fe22c4e816231745f41790a734ea1edec38ab84b654"
+      },
+      {
+        "path": "spacetimedb/src/game.ts",
+        "git_blob_sha1": "2b471e99ad526f81f5708abf3c24226a1c30d681",
+        "sha256": "bf851825e9852289c836de33fc61543aa14be6c4b6e5e86abecfe5562413e184"
+      },
+      {
+        "path": "spacetimedb/src/identity.ts",
+        "git_blob_sha1": "c8b20b02fc26ea637b73c394ef10697041e9fc7a",
+        "sha256": "b8cd91e1d06ec4bf4e43d64d050c82accc9d7d9240cd4c8380f9a65a6606b494"
+      },
+      {
+        "path": "spacetimedb/src/index.ts",
+        "git_blob_sha1": "7e2b14b98c8de0dab49eb853a3259333c4a50429",
+        "sha256": "be9469999604a1aa07ba0bfbfee2748d541058dbdb7eeb72f1bc9fd2eae95629"
+      },
+      {
+        "path": "spacetimedb/src/letters.ts",
+        "git_blob_sha1": "203985d1c2c7aa4dca8a3dd064c9a8ccf7c1475e",
+        "sha256": "102784fcfe2ce0fca2daa9d9e93ed93ebd4157f4b30b663128fa52cf27fcd630"
+      },
+      {
+        "path": "spacetimedb/src/libm.ts",
+        "git_blob_sha1": "4ff7f7454c26fcdcb7a57f9a32d864a7a2f2c5c9",
+        "sha256": "d1c77660e22b9ef82f92ad873bdab8de1954f3552f2b1a6ab403d3cf1b17a1bd"
+      },
+      {
+        "path": "spacetimedb/src/lobby.ts",
+        "git_blob_sha1": "15d4349f4f463fc80019c0d5989c5a77fc50acac",
+        "sha256": "7c3e5b0575c8ca6be810a990acdca99f4cf1c73dc9549eb45a16eb7570484b95"
+      },
+      {
+        "path": "spacetimedb/src/ratings.ts",
+        "git_blob_sha1": "9c71b468663914ff4500f720fdc69cb0df9ec262",
+        "sha256": "2ef90f86befede99444063702298763d6782bdee9ca8d460e06adf059ca43cf2"
+      },
+      {
+        "path": "spacetimedb/src/schema.ts",
+        "git_blob_sha1": "5939c28535a3f5fb9d269816f88cc966cae1af56",
+        "sha256": "67aa898efa43351fc0f19669e21ded132387d560f66e437305c09e7bc11d9334"
+      },
+      {
+        "path": "spacetimedb/src/tests/admins.test.ts",
+        "git_blob_sha1": "53f5deb27bc388ec83304c89887cb8ad86718598",
+        "sha256": "8cfdb5308eaefd0c67f7dfd9d2357b17f83a8dc5a07a09e92674b2d07608946e"
+      },
+      {
+        "path": "spacetimedb/src/tests/auctions.test.ts",
+        "git_blob_sha1": "3937314ef1af6a11c3348d7f5f4606130d2c130f",
+        "sha256": "354e7e9e64389e95511fb951e542146c23627bf473afc7e4ef6a635ed9f2e410"
+      },
+      {
+        "path": "spacetimedb/src/tests/finals.test.ts",
+        "git_blob_sha1": "6da6847aab785bffd5e9d3dbe0199b0a58ab2a59",
+        "sha256": "d7bafa0b064105b43e963d45c97dad56c1dd43199fbf025109c8d60fa3dde4c7"
+      },
+      {
+        "path": "spacetimedb/src/tests/harness.ts",
+        "git_blob_sha1": "fc1eced9ebf271b408adc9eb1ea8825f04cc9df9",
+        "sha256": "a6d9c937d480b3f23dc14ed486688c6d2e11459dc0cb7fc6e750c1eed3eee3b2"
+      },
+      {
+        "path": "spacetimedb/src/tests/lobbies.test.ts",
+        "git_blob_sha1": "09f2031eadca91e75055ed540b9a71e2cdf31782",
+        "sha256": "aa910bd0a1280743560d280bcfeada8954d8e2434b174a05a87590abfc21f3fd"
+      },
+      {
+        "path": "spacetimedb/src/tests/matchmaker.test.ts",
+        "git_blob_sha1": "378c7105a5dce55d69ec574bd75c490c8c97ccf1",
+        "sha256": "642f4dc582122f97dd7b49d35717aebe2c24c3f4ae6f7a6957de30f603f78096"
+      },
+      {
+        "path": "spacetimedb/src/tests/pure.test.ts",
+        "git_blob_sha1": "c40a6aade5f271e28b2dd80e5d571bb025bc7d05",
+        "sha256": "5741fdae0874e7ec19e370f5e2eb10251351d295995eac854b98a524efa6687f"
+      },
+      {
+        "path": "spacetimedb/src/tests/ratings.test.ts",
+        "git_blob_sha1": "291971e888fbe65a168583cdf5950a3f9f1734fc",
+        "sha256": "4a3ac532cd1eb9d7d5a48262d895726788a5eccbafe82cc8184d244b0da69075"
+      },
+      {
+        "path": "spacetimedb/src/tests/registration.test.ts",
+        "git_blob_sha1": "ac442608643abb156da5eb21ef733c7f79eb1574",
+        "sha256": "214e3ea0e4a5f5e0c410fa0fba2f5e4b8d61ecb4f092cd6382318f8b8b84f458"
+      },
+      {
+        "path": "spacetimedb/src/tests/teams.test.ts",
+        "git_blob_sha1": "6284354583ee58ed9857a663f750fc4e304df7d3",
+        "sha256": "dc32f0383f1c760efde667c49b82457d88833a8a6970c5fe0192c92c0d8366d3"
+      },
+      {
+        "path": "spacetimedb/src/tests/tournaments.test.ts",
+        "git_blob_sha1": "c9ade72724d6c2741f0735310a19426f6fc7734b",
+        "sha256": "2920731b9e68886ecec607d54074f9f0b7ee0fd5201d3f73d99f88b3fd1339cf"
+      },
+      {
+        "path": "spacetimedb/src/tests/views.test.ts",
+        "git_blob_sha1": "7a1c19ef470472b4b84e0b4fd220ccbbd837d5cd",
+        "sha256": "a6dae66c37a045f2b7a8a348a25e096ffdf9e2a8327935e835daa41031003d22"
+      },
+      {
+        "path": "spacetimedb/src/tests/words.test.ts",
+        "git_blob_sha1": "bce53a4570092f3dd60e59ce69123886aea3e16b",
+        "sha256": "efb587b6d1b7fb9d5d94d4c8cc3cf3e4825767520ab57bc2b9e4a58d8562a4a7"
+      },
+      {
+        "path": "spacetimedb/src/text.ts",
+        "git_blob_sha1": "91be597bd4b2f8b419d30b32e99caa1e0a3a1dd9",
+        "sha256": "7fee61325305530ace42fb7e5d5e376cf6141ec20bc3ccce8d7ae53832c8cffe"
+      },
+      {
+        "path": "spacetimedb/src/tournament.ts",
+        "git_blob_sha1": "b68ad33d90712831c1fcca72017b40365bbbfb6a",
+        "sha256": "e82e5c2b108cab3acbcd50d74b6f12491d1bb82759997fd0e618b80f6edc06f6"
+      },
+      {
+        "path": "spacetimedb/src/wordlist.d.ts",
+        "git_blob_sha1": "c1346091b155acf29e002f889bca9b9247fac0ee",
+        "sha256": "a18601f1a3b6c7ee8effe60b37a1651393bb3d6b998cf51b68914e90ec4bd5e9"
+      },
+      {
+        "path": "spacetimedb/tsconfig.json",
+        "git_blob_sha1": "639d629c823daa758087bb65492d6ef833979b21",
+        "sha256": "04c211f300d2acea97ce7166e480cc23fffc5f7190b02b217ba02050473b26d0"
+      },
+      {
+        "path": "spacetimedb/vitest.config.ts",
+        "git_blob_sha1": "3e1f5404e72f613c27b2172803ef1fcbae815ca2",
+        "sha256": "fd9e8c0225d08888765a8b34a35dc5a99a5d26da7d5cbeac995a6d00d286d8a2"
+      },
+      {
+        "path": "spacetimedb/wordlist.txt",
+        "git_blob_sha1": "3e3a49475b3e300437a5be7ddd5dd12274052bac",
+        "sha256": "b819e7b67f8f2c80640ae76f0edbe59a4a1befb6de0f348463642ad49bdd2ad3"
+      }
+    ]
+  },
+  "server": {
+    "version": "2.14.1",
+    "release": "https://github.com/clockworklabs/SpacetimeDB/releases/tag/v2.14.1",
+    "linuxX64Sha256": "67a3c99c19abc4ba58b4ab999b309b3c5899602b3f0f7ae75e296335c174c82b"
+  },
+  "baselineAdapter": [
+    {
+      "path": "bot-starter/src/index.ts",
+      "sha256": "a75fabe181e022d2a6712ecefcba3957d6d274c7ea398952a66b967c4017eb8f",
+      "byteIdenticalToPreviousStarter": true
+    },
+    {
+      "path": "bot-starter/src/strategy.ts",
+      "sha256": "64ca4f2c53cf8434a67bb0ffac18bfb7053e52a647eac483213e55ca23761fb0",
+      "byteIdenticalToPreviousStarter": true
+    }
+  ],
+  "challenger": {
+    "path": "policies/challenger_policy.ts",
+    "sha256": "af9d51055e39be6f23fc0d5dd68b7657de8eb09156b42e3437cd432b6655c4f3",
+    "weightsSha256": "77a7c5b5c7fdef82a896d51c593e14d023ca12a5dd09463c90c084f568d30407",
+    "status": "Frozen by independent training and validation before final evaluation; not promoted"
+  }
+}

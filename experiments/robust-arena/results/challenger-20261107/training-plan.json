@@ -1,0 +1,594 @@
+{
+  "createdAt": "2026-11-07T22:01:37.121Z",
+  "method": "Fixed-budget randomized/evolutionary black-box optimization, separate weights per auction type; no neural-network/LLM training",
+  "objective": "Mean pairwise finish score + 0.002 * game score, equally weighted across three synthetic opponent families",
+  "seeds": {
+    "training": [
+      1000001,
+      1000016
+    ],
+    "validation": [
+      1100001,
+      1100024
+    ],
+    "final": [
+      1200001,
+      1200048
+    ],
+    "candidateRandomness": 1900001,
+    "populations": {
+      "train": 1600001,
+      "validation": 1700001,
+      "final": 1800001
+    }
+  },
+  "excludedPriorTest": [
+    710001,
+    710032
+  ],
+  "budget": {
+    "screenCandidatesPerAuction": 24,
+    "screenDeals": 8,
+    "screenSeats": [
+      0,
+      2,
+      4
+    ],
+    "refineCandidatesPerAuction": 16,
+    "refineDeals": 16,
+    "refineSeats": [
+      1,
+      3,
+      5
+    ],
+    "validationFinalistsPerAuction": 5,
+    "validationDeals": 24,
+    "validationSeats": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "finalDeals": 48,
+    "finalSeats": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "selection": "Top four non-baseline refined candidates plus frozen baseline enter validation. Highest validation objective wins separately by auction; ties favor baseline. Freeze weights and hashes before any final test game. No retraining or promotion chosen from final outcomes.",
+  "families": [
+    "pressure",
+    "portfolio",
+    "balanced"
+  ],
+  "finalSettings": [
+    {
+      "id": "pressure",
+      "family": "pressure"
+    },
+    {
+      "id": "portfolio",
+      "family": "portfolio"
+    },
+    {
+      "id": "balanced",
+      "family": "balanced"
+    },
+    {
+      "id": "frontier-mixed",
+      "family": "frontier-mixed"
+    },
+    {
+      "id": "balanced-miss-10pct",
+      "family": "balanced",
+      "missedWindowProbability": 0.1
+    },
+    {
+      "id": "balanced-one-word",
+      "family": "balanced",
+      "maxWordsPerWindow": 1
+    }
+  ],
+  "populations": {
+    "train": {
+      "pressure": [
+        {
+          "name": "train-pressure-rack-0",
+          "kind": "rack",
+          "parameters": {
+            "face": 3.290882945805788,
+            "marginal": 0.8516058621462435,
+            "future": 0.1708789995778352,
+            "shade": 0.49826990319415926,
+            "cash": 22.92809043265879,
+            "minLength": 6.425722038093955,
+            "liquidate": 10.78982411371544,
+            "cap": 29.334721609950066
+          }
+        },
+        {
+          "name": "train-pressure-rack-1",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.3457153774797916,
+            "marginal": 0.7528515565209091,
+            "future": 0.5149241603910923,
+            "shade": 0.8739615030423739,
+            "cash": 43.44351266697049,
+            "minLength": 8.020838851574808,
+            "liquidate": 8.160059083485976,
+            "cap": 45.20180012146011
+          }
+        },
+        {
+          "name": "train-pressure-rack-2",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.244663720577955,
+            "marginal": 1.214547598734498,
+            "future": 0.5078850637562573,
+            "shade": 0.5142410024022683,
+            "cash": 37.750435813330114,
+            "minLength": 6.943618902936578,
+            "liquidate": 6.3981293444521725,
+            "cap": 51.452853137627244
+          }
+        },
+        {
+          "name": "train-pressure-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.6236347569269127,
+          "adaptive": false
+        },
+        {
+          "name": "train-pressure-portfolio-4",
+          "kind": "portfolio",
+          "aggression": 1.1182311689248308,
+          "adaptive": true
+        }
+      ],
+      "portfolio": [
+        {
+          "name": "train-portfolio-portfolio-0",
+          "kind": "portfolio",
+          "aggression": 1.0242205391754395,
+          "adaptive": true
+        },
+        {
+          "name": "train-portfolio-portfolio-1",
+          "kind": "portfolio",
+          "aggression": 1.3701732883928344,
+          "adaptive": false
+        },
+        {
+          "name": "train-portfolio-portfolio-2",
+          "kind": "portfolio",
+          "aggression": 1.5358536112704315,
+          "adaptive": true
+        },
+        {
+          "name": "train-portfolio-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.6058961462113075,
+          "adaptive": false
+        },
+        {
+          "name": "train-portfolio-rack-4",
+          "kind": "rack",
+          "parameters": {
+            "face": 3.658835269510746,
+            "marginal": 0.41840452142059803,
+            "future": 0.7768286520987749,
+            "shade": 0.874389691266697,
+            "cash": 44.21763449627906,
+            "minLength": 7.670410679094494,
+            "liquidate": 11.981534853111953,
+            "cap": 50.70565333869308
+          }
+        }
+      ],
+      "balanced": [
+        {
+          "name": "train-balanced-rack-0",
+          "kind": "rack",
+          "parameters": {
+            "face": 3.40006894916296,
+            "marginal": 0.9851951296441257,
+            "future": 0.6674076399207115,
+            "shade": 0.7847293862700463,
+            "cash": 22.020707791205496,
+            "minLength": 7.439336055703461,
+            "liquidate": 9.448235939722508,
+            "cap": 46.995184692088515
+          }
+        },
+        {
+          "name": "train-balanced-rack-1",
+          "kind": "rack",
+          "parameters": {
+            "face": 4.089512408524751,
+            "marginal": 0.39111125096678734,
+            "future": 0.27286098594777286,
+            "shade": 0.840329941995442,
+            "cash": 39.39198813820258,
+            "minLength": 6.667468623630703,
+            "liquidate": 4.356650363653898,
+            "cap": 36.00698226178065
+          }
+        },
+        {
+          "name": "train-balanced-portfolio-2",
+          "kind": "portfolio",
+          "aggression": 0.9338663983973674,
+          "adaptive": true
+        },
+        {
+          "name": "train-balanced-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.5697503381874411,
+          "adaptive": false
+        },
+        {
+          "name": "train-balanced-portfolio-4",
+          "kind": "portfolio",
+          "aggression": 1.5574357301928101,
+          "adaptive": true
+        }
+      ]
+    },
+    "validation": {
+      "pressure": [
+        {
+          "name": "validation-pressure-rack-0",
+          "kind": "rack",
+          "parameters": {
+            "face": 3.260684365779161,
+            "marginal": 0.6137238345108926,
+            "future": 0.1780945927836001,
+            "shade": 0.49539450233336535,
+            "cash": 33.95960527192801,
+            "minLength": 8.25378988236189,
+            "liquidate": 8.171471702400595,
+            "cap": 48.726311126258224
+          }
+        },
+        {
+          "name": "validation-pressure-rack-1",
+          "kind": "rack",
+          "parameters": {
+            "face": 4.589320084452629,
+            "marginal": 1.0854716799221933,
+            "future": 0.14911810907535256,
+            "shade": 0.9989169415645303,
+            "cash": 25.459428270813078,
+            "minLength": 6.433995479810983,
+            "liquidate": 11.886701210169122,
+            "cap": 30.880177021492273
+          }
+        },
+        {
+          "name": "validation-pressure-rack-2",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.719218099862337,
+            "marginal": 0.785773188341409,
+            "future": 0.1389556794706732,
+            "shade": 0.7601264307182283,
+            "cash": 40.25277355173603,
+            "minLength": 7.487126650754362,
+            "liquidate": 3.4197805470321327,
+            "cap": 46.623529366217554
+          }
+        },
+        {
+          "name": "validation-pressure-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.6871393448789602,
+          "adaptive": false
+        },
+        {
+          "name": "validation-pressure-portfolio-4",
+          "kind": "portfolio",
+          "aggression": 1.471245987236034,
+          "adaptive": true
+        }
+      ],
+      "portfolio": [
+        {
+          "name": "validation-portfolio-portfolio-0",
+          "kind": "portfolio",
+          "aggression": 1.5390725113684312,
+          "adaptive": true
+        },
+        {
+          "name": "validation-portfolio-portfolio-1",
+          "kind": "portfolio",
+          "aggression": 1.0594255376723596,
+          "adaptive": false
+        },
+        {
+          "name": "validation-portfolio-portfolio-2",
+          "kind": "portfolio",
+          "aggression": 1.659975135687273,
+          "adaptive": true
+        },
+        {
+          "name": "validation-portfolio-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.6653950633248313,
+          "adaptive": false
+        },
+        {
+          "name": "validation-portfolio-rack-4",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.7481481947004793,
+            "marginal": 0.8213504946324974,
+            "future": 0.5126843838766217,
+            "shade": 0.9923814269900322,
+            "cash": 35.44835370685905,
+            "minLength": 7.078039600141347,
+            "liquidate": 4.667872601188719,
+            "cap": 25.742118789814413
+          }
+        }
+      ],
+      "balanced": [
+        {
+          "name": "validation-balanced-rack-0",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.105929095298052,
+            "marginal": 1.0155694489367306,
+            "future": 0.6846316441707313,
+            "shade": 0.8218340178136714,
+            "cash": 28.459960887674242,
+            "minLength": 7.642827060166747,
+            "liquidate": 4.533999110339209,
+            "cap": 36.047750735189766
+          }
+        },
+        {
+          "name": "validation-balanced-rack-1",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.5573856204748155,
+            "marginal": 0.5615028452593833,
+            "future": 0.1628114855941385,
+            "shade": 0.9872732859011741,
+            "cash": 35.56455353926867,
+            "minLength": 5.937075246870518,
+            "liquidate": 9.928296106634662,
+            "cap": 32.93144845915958
+          }
+        },
+        {
+          "name": "validation-balanced-portfolio-2",
+          "kind": "portfolio",
+          "aggression": 1.0395517764030955,
+          "adaptive": true
+        },
+        {
+          "name": "validation-balanced-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.1102845437126234,
+          "adaptive": false
+        },
+        {
+          "name": "validation-balanced-portfolio-4",
+          "kind": "portfolio",
+          "aggression": 1.48976202851627,
+          "adaptive": true
+        }
+      ]
+    },
+    "final": {
+      "pressure": [
+        {
+          "name": "final-pressure-rack-0",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.861647491157055,
+            "marginal": 0.6117141677532345,
+            "future": 0.7572082421556116,
+            "shade": 1.0208907476020979,
+            "cash": 25.61369992280379,
+            "minLength": 5.754352052696049,
+            "liquidate": 11.605641046073288,
+            "cap": 43.34538952028379
+          }
+        },
+        {
+          "name": "final-pressure-rack-1",
+          "kind": "rack",
+          "parameters": {
+            "face": 3.7870876394212245,
+            "marginal": 0.5852219555526972,
+            "future": 0.7060643288679421,
+            "shade": 0.6213233532733284,
+            "cash": 42.302433093544096,
+            "minLength": 6.563039673864842,
+            "liquidate": 11.359544047620147,
+            "cap": 42.107543263584375
+          }
+        },
+        {
+          "name": "final-pressure-rack-2",
+          "kind": "rack",
+          "parameters": {
+            "face": 4.708776331692934,
+            "marginal": 1.1841639287304133,
+            "future": 0.367651473460719,
+            "shade": 0.5075642272573896,
+            "cash": 27.416120548266917,
+            "minLength": 6.687190776225179,
+            "liquidate": 12.848072938621044,
+            "cap": 42.98932121647522
+          }
+        },
+        {
+          "name": "final-pressure-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.6270605776924638,
+          "adaptive": false
+        },
+        {
+          "name": "final-pressure-portfolio-4",
+          "kind": "portfolio",
+          "aggression": 1.4449697397300043,
+          "adaptive": true
+        }
+      ],
+      "portfolio": [
+        {
+          "name": "final-portfolio-portfolio-0",
+          "kind": "portfolio",
+          "aggression": 1.3512831975589505,
+          "adaptive": true
+        },
+        {
+          "name": "final-portfolio-portfolio-1",
+          "kind": "portfolio",
+          "aggression": 1.3780997636029495,
+          "adaptive": false
+        },
+        {
+          "name": "final-portfolio-portfolio-2",
+          "kind": "portfolio",
+          "aggression": 1.4035551043460144,
+          "adaptive": true
+        },
+        {
+          "name": "final-portfolio-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.1683552550151943,
+          "adaptive": false
+        },
+        {
+          "name": "final-portfolio-rack-4",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.9287255741655827,
+            "marginal": 0.35579116526059806,
+            "future": 0.5398000588268042,
+            "shade": 0.44469483885448424,
+            "cash": 30.633280651643872,
+            "minLength": 5.730534432455897,
+            "liquidate": 5.661217956803739,
+            "cap": 45.812348460778594
+          }
+        }
+      ],
+      "balanced": [
+        {
+          "name": "final-balanced-rack-0",
+          "kind": "rack",
+          "parameters": {
+            "face": 2.4628831684589385,
+            "marginal": 0.2806430289056152,
+            "future": 0.43507663276977837,
+            "shade": 0.9097290091775359,
+            "cash": 24.563104055821896,
+            "minLength": 8.032206790149212,
+            "liquidate": 7.807187445228919,
+            "cap": 23.747563360258937
+          }
+        },
+        {
+          "name": "final-balanced-rack-1",
+          "kind": "rack",
+          "parameters": {
+            "face": 4.688754433393479,
+            "marginal": 0.9274888196960092,
+            "future": 0.3055450056027621,
+            "shade": 0.6490329413954169,
+            "cash": 24.328831671271473,
+            "minLength": 7.280326590873301,
+            "liquidate": 5.330310850404203,
+            "cap": 30.516533069778234
+          }
+        },
+        {
+          "name": "final-balanced-portfolio-2",
+          "kind": "portfolio",
+          "aggression": 1.4405915271840057,
+          "adaptive": true
+        },
+        {
+          "name": "final-balanced-portfolio-3",
+          "kind": "portfolio",
+          "aggression": 1.221499419247266,
+          "adaptive": false
+        },
+        {
+          "name": "final-balanced-portfolio-4",
+          "kind": "portfolio",
+          "aggression": 1.3641548780258743,
+          "adaptive": true
+        }
+      ]
+    }
+  },
+  "parameterBounds": {
+    "face": [
+      0.5,
+      7
+    ],
+    "marginal": [
+      0.05,
+      1.8
+    ],
+    "future": [
+      0,
+      1.4
+    ],
+    "shade": [
+      0.25,
+      1.3
+    ],
+    "cash": [
+      10,
+      65
+    ],
+    "minLength": [
+      4.5,
+      9
+    ],
+    "liquidate": [
+      1,
+      18
+    ],
+    "cap": [
+      12,
+      60
+    ]
+  },
+  "hashes": {
+    "challenger_train.ts": "ed9e81ac3a2685ebcc6f27f0808af7c90a66c24aa2853c343cb3a31b612b70d1",
+    "challenger_worker.ts": "c734c52401dfe4e2ceba6d93989cd9e69b50f61bed927f461a9a92060a646484",
+    "challenger_league.ts": "b194c14440766c14e635eefd129e8905fdf49d6ef40367a94f0b8508c11e9ecf",
+    "arena_v2.ts": "6fc8a01953372463b61f0502aad78ef5a8c14d359e3665b4ca8db5e49c148aba",
+    "league.ts": "eedac3ebe656a49e7875e6d6c68a7ed7e94fe85ca8c7ab7a82b066cb7b70a91e",
+    "arena.ts": "7f597584f054d0b25ca772b0dc79d4ff58bbb24ebe8a2dfa861784c8462f46e8",
+    "statistics.ts": "5f4996f568b4f2f3b1f7a2dfe03b444c134d6b979341c93342902a3e889992b5",
+    "parametric_strategy.ts": "8de6bbf852acca0e06d7be715be1580d4bf0239a45fb7e4cbe825eee70a7be2c",
+    "original_strategy.ts": "64ca4f2c53cf8434a67bb0ffac18bfb7053e52a647eac483213e55ca23761fb0",
+    "original_simulator.ts": "7560a26b1b2b119337d0d83ef2c70f4cfce2c17047f820eea84fca5fce23a443",
+    "learned_policy.ts": "df7a0ab4d01216fcc653395ea3f11af4c0e9bc846922f90122e54a3a740ed381",
+    "learned-weights.json": "487243559168aad6db70df7ed3a1cb9528426f163c207212220df1480697cb49",
+    "wordlist.txt": "5141da6f336b3e74a5559c996bb02ec2d93d7eb317ab84200a56e79d6ccfb681"
+  },
+  "statistics": "Paired bootstrap over independent deal means. Six seats and all settings using a deal are clustered together for aggregate comparisons. 5000 resamples; per-comparison intervals, no multiple-comparison correction.",
+  "limitations": [
+    "All opponents are synthetic. Populations have distinct parameter draws across splits but share policy implementations.",
+    "The fixed historical frontier comparator deliberately shares frozen opponents with the prior experiment; it is separate from the disjoint generated populations.",
+    "Only 48 independent final deals. More seats and settings do not make new independent deals.",
+    "Synthetic missed windows are not measured live network latency."
+  ]
+}
