@@ -8,6 +8,7 @@ import {
   type ErrorContext,
 } from "./module_bindings/index.js";
 import { Identity } from "spacetimedb";
+import type { Auction, Match, MatchParticipant } from "./module_bindings/types.js";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { wordReward } from "./strategy.js";
@@ -64,11 +65,46 @@ function policyFor(matchId: bigint): MatchPolicy {
   if (!p) { p = newMatchPolicy(POLICY); policies.set(key, p); }
   return p;
 }
-function inMatch(conn: DbConnection, matchId: bigint): boolean {
-  if (myBotId === null) return false;
-  for (const p of conn.db.matchParticipant.iter()) if (p.matchId === matchId && p.botId === myBotId) return true;
-  return false;
+function inMatch(_conn: DbConnection, matchId: bigint): boolean {
+  return myBotId !== null && myParticipants.has(String(matchId));
 }
+
+// The SDK client cache has no real indexes: even `table.id.find()` scans the
+// whole table (see TableCacheImpl#makeReadonlyIndex "TODO: this just scans").
+// On the hosted database (every historical match/auction/result is public and
+// subscribed) that made each decision O(rows). Keep our own keyed views,
+// rebuilt once on subscription and maintained from row callbacks.
+type MatchRow = Match;
+type AuctionRow = Auction;
+type ParticipantRow = MatchParticipant;
+const matchesById = new Map<string, MatchRow>();
+const openAuctions = new Map<string, AuctionRow>();
+const myParticipants = new Map<string, ParticipantRow>();
+function indexMatch(m: MatchRow) { matchesById.set(String(m.id), m); }
+function indexAuction(a: AuctionRow) {
+  if (a.status.tag === "Open") openAuctions.set(String(a.id), a);
+  else openAuctions.delete(String(a.id));
+}
+function indexParticipant(p: ParticipantRow) {
+  if (myBotId !== null && p.botId === myBotId) myParticipants.set(String(p.matchId), p);
+}
+function rebuildIndexes(conn: DbConnection) {
+  matchesById.clear(); openAuctions.clear(); myParticipants.clear();
+  for (const m of conn.db.matchState.iter()) indexMatch(m);
+  for (const a of conn.db.auction.iter()) if (a.status.tag === "Open") indexAuction(a);
+  for (const p of conn.db.matchParticipant.iter()) indexParticipant(p);
+}
+function findMatch(matchId: bigint): MatchRow | undefined { return matchesById.get(String(matchId)); }
+
+// Round-trip estimate from our own reducer calls (EWMA). Hosted RTT can be
+// 50-300 ms; the bid deadline guard must cover a full round trip because our
+// "first seen" time already lags the server's opensAt by one network leg.
+let rttMs = 100;
+function noteRtt(startedMs: number) {
+  const sample = Date.now() - startedMs;
+  if (sample >= 0 && sample < 5000) rttMs = 0.8 * rttMs + 0.2 * sample;
+}
+function bidGuardMs(): number { return Math.max(100, Math.round(rttMs) + 60); }
 
 let myIdentity: Identity | null = null;
 let myBotId: bigint | null = null;
@@ -105,12 +141,8 @@ function participantForMatch(
   matchId: bigint,
 ): { balance: number; score: number } | null {
   if (myBotId === null) return null;
-  for (const p of conn.db.matchParticipant.iter()) {
-    if (p.matchId !== matchId) continue;
-    if (p.botId !== myBotId) continue;
-    return { balance: Number(p.balance), score: Number(p.score) };
-  }
-  return null;
+  const p = myParticipants.get(String(matchId));
+  return p ? { balance: Number(p.balance), score: Number(p.score) } : null;
 }
 
 // A reducer call fails when the module refuses it, often for an expected
@@ -131,21 +163,25 @@ function tryBid(
   letter: string,
 ) {
   if (myBotId === null) return;
-  if (wordInFlight.has(String(matchId))) return;
   const key = `${matchId}:${auctionId}`;
   if (bidsByAuction.has(key)) return;
   const participant = participantForMatch(conn, matchId);
   if (!participant) return;
-  const match = conn.db.matchState.id.find(matchId);
+  const match = findMatch(matchId);
   if (!match || match.status.tag !== "Running") return;
-  const auction = conn.db.auction.id.find(auctionId);
+  const auction = openAuctions.get(String(auctionId));
   if (!auction) return;
   // Deadline check on our own clock, measured from when we first saw the auction, so a
   // skewed local clock cannot make us skip every bid (server and local clocks differ).
   const key0 = String(auctionId);
   if (!firstSeenMs.has(key0)) firstSeenMs.set(key0, Date.now());
   const windowMs = Number(auction.closesAt.microsSinceUnixEpoch - auction.opensAt.microsSinceUnixEpoch) / 1000;
-  if (Date.now() > firstSeenMs.get(key0)! + windowMs - 100) return;
+  const deadline = firstSeenMs.get(key0)! + windowMs - bidGuardMs();
+  if (Date.now() > deadline) return;
+  // Prefer bidding after an in-flight word lands (fresh balance/rack), but never let a
+  // chain of words at high RTT starve the bid: once there is no time left to wait for
+  // another word round trip, bid with the state we have (balance only grows with words).
+  if (wordInFlight.has(String(matchId)) && Date.now() < deadline - (rttMs + 150)) return;
   const amount = policyFor(matchId).decideBid({
     letter,
     myBalance: participant.balance,
@@ -155,8 +191,10 @@ function tryBid(
     auctionType: match.auctionType.tag,
   });
   if (amount <= 0) return;
+  const bidStarted = Date.now();
   conn.reducers
     .submitBid({ auctionId, amount: BigInt(amount) })
+    .then(() => noteRtt(bidStarted))
     .catch((err: unknown) => { bidsByAuction.delete(key); logFailure(`bid on auction ${auctionId}`)(err); });
   bidsByAuction.add(key);
   console.log(
@@ -169,10 +207,8 @@ function tryPlayWord(conn: DbConnection) {
   // Only matches still being played. The bot keeps its letters from
   // matches that have ended, but can't play them.
   const matches = new Set<bigint>();
-  for (const p of conn.db.matchParticipant.iter()) {
-    if (p.botId !== myBotId) continue;
-    const m = conn.db.matchState.id.find(p.matchId);
-    if (m?.status.tag === "Running") matches.add(p.matchId);
+  for (const p of myParticipants.values()) {
+    if (findMatch(p.matchId)?.status.tag === "Running") matches.add(p.matchId);
   }
   const now = Date.now();
   for (const matchId of matches) {
@@ -183,16 +219,28 @@ function tryPlayWord(conn: DbConnection) {
       myRack: rackForMatch(conn, matchId),
       dictionary: DICTIONARY,
       myBalance: participantForMatch(conn, matchId)?.balance,
-      bagRemaining: conn.db.matchState.id.find(matchId)?.bagTotal,
-      auctionType: conn.db.matchState.id.find(matchId)?.auctionType.tag,
+      bagRemaining: findMatch(matchId)?.bagTotal,
+      auctionType: findMatch(matchId)?.auctionType.tag,
     } as Parameters<MatchPolicy["chooseWord"]>[0]);
     if (!word) continue;
     console.log(`[${BOT_NAME}] match ${matchId}: playing '${word}' for ${wordReward(word)} points`);
     wordInFlight.add(key);
+    const wordStarted = Date.now();
     conn.reducers
       .submitWord({ matchId, word })
+      .then(() => noteRtt(wordStarted))
       .catch(logFailure(`playing '${word}'`))
-      .finally(() => { setTimeout(() => wordInFlight.delete(key), 80); });
+      .finally(() => {
+        setTimeout(() => {
+          wordInFlight.delete(key);
+          // Continue liquidation / the deferred bid now instead of waiting for the next tick.
+          if (conn !== activeConnection) return;
+          safely("post-word", () => {
+            tryPlayWord(conn);
+            for (const a of openAuctions.values()) if (a.matchId === matchId) tryBid(conn, a.id, a.matchId, a.letter);
+          });
+        }, 80);
+      });
   }
 }
 
@@ -214,6 +262,7 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
         process.exit(1);
       }
 
+      rebuildIndexes(conn);
       const bot = conn.db.bot.id.find(myBotId);
       console.log(
         `[${BOT_NAME}] acting as bot '${bot?.name ?? "?"}' (id ${myBotId})`,
@@ -222,15 +271,25 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
     })
     .subscribeToAllTables();
 
+  conn.db.matchState.onInsert((_ctx, m) => indexMatch(m));
+  conn.db.matchState.onDelete((_ctx, m) => { matchesById.delete(String(m.id)); });
+  conn.db.auction.onUpdate((_ctx, _old, a) => indexAuction(a));
+  conn.db.auction.onDelete((_ctx, a) => { openAuctions.delete(String(a.id)); });
+  conn.db.matchParticipant.onInsert((_ctx, p) => indexParticipant(p));
+  conn.db.matchParticipant.onUpdate((_ctx, _old, p) => indexParticipant(p));
+  conn.db.matchParticipant.onDelete((_ctx, p) => {
+    if (myBotId !== null && p.botId === myBotId && myParticipants.get(String(p.matchId))?.id === p.id) myParticipants.delete(String(p.matchId));
+  });
   conn.db.auction.onInsert((_ctx: EventContext, a) => {
+    indexAuction(a);
     if (a.status.tag === "Open") {
       if (!firstSeenMs.has(String(a.id))) firstSeenMs.set(String(a.id), Date.now());
       if (firstSeenMs.size > 5000) firstSeenMs.clear();
-      setImmediate(() => { tryPlayWord(conn); tryBid(conn, a.id, a.matchId, a.letter); });
+      setImmediate(() => safely("auction insert", () => { tryPlayWord(conn); tryBid(conn, a.id, a.matchId, a.letter); }));
     }
   });
   // Defer until the full subscription transaction has applied.
-  const queueWords = () => setImmediate(() => tryPlayWord(conn));
+  const queueWords = () => setImmediate(() => safely("rack update", () => tryPlayWord(conn)));
   conn.db.myRack.onInsert(queueWords);
   conn.db.myRack.onUpdate(queueWords);
   conn.db.myRack.onDelete(queueWords);
@@ -253,11 +312,10 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
 
   // When a match this bot was in ends, hop back into the lobby.
   conn.db.matchState.onUpdate((_ctx, old, neu) => {
+    indexMatch(neu);
     if (myBotId === null) return;
     if (old.status.tag !== "Ended" && neu.status.tag === "Ended") {
-      const wasIn = Array.from(conn.db.matchParticipant.iter()).some(
-        (p) => p.matchId === neu.id && p.botId === myBotId,
-      );
+      const wasIn = myParticipants.has(String(neu.id));
       if (wasIn) {
         for (const key of bidsByAuction) if (key.startsWith(`${neu.id}:`)) bidsByAuction.delete(key);
         lastWordAttemptByMatch.delete(String(neu.id));
@@ -272,11 +330,9 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
 
 function joinLobby(conn: DbConnection) {
   if (myBotId === null || !AUTO_JOIN_LOBBY) return;
-  const inRunning = Array.from(conn.db.matchParticipant.iter()).some((p) => {
-    if (p.botId !== myBotId) return false;
-    const m = conn.db.matchState.id.find(p.matchId);
-    return m?.status.tag === "Running";
-  });
+  const inRunning = Array.from(myParticipants.values()).some(
+    (p) => findMatch(p.matchId)?.status.tag === "Running",
+  );
   if (inRunning) return;
   const openLobby = Array.from(conn.db.lobby.iter()).find(
     (l) => l.status.tag === "Open",
@@ -295,16 +351,14 @@ function bootstrapActivity(conn: DbConnection) {
   if (activityTimer) clearInterval(activityTimer);
   // Replay public results of running matches we are in (initial rows arrive before myBotId is known).
   for (const r of conn.db.auctionResult.iter()) {
-    if (conn.db.matchState.id.find(r.matchId)?.status.tag !== "Running" || !inMatch(conn, r.matchId)) continue;
+    if (!inMatch(conn, r.matchId) || findMatch(r.matchId)?.status.tag !== "Running") continue;
     policyFor(r.matchId).observe(String(r.auctionId), r.letter, r.winnerBotId !== undefined && r.winnerBotId !== null, Number(r.paid));
   }
-  activityTimer = setInterval(() => {
+  activityTimer = setInterval(() => safely("activity tick", () => {
     // Re-evaluate even if our rack did not change: the bag is approaching zero.
     tryPlayWord(conn);
-    for (const a of conn.db.auction.iter()) {
-      if (a.status.tag === "Open") tryBid(conn, a.id, a.matchId, a.letter);
-    }
-  }, 150);
+    for (const a of openAuctions.values()) tryBid(conn, a.id, a.matchId, a.letter);
+  }), 150);
   if (TOURNAMENT_ID) {
     conn.reducers
       .registerForTournament({ tournamentId: BigInt(TOURNAMENT_ID) })
@@ -315,10 +369,16 @@ function bootstrapActivity(conn: DbConnection) {
   }
   joinLobby(conn);
   tryPlayWord(conn);
-  for (const a of conn.db.auction.iter()) {
-    if (a.status.tag === "Open") tryBid(conn, a.id, a.matchId, a.letter);
-  }
+  for (const a of openAuctions.values()) tryBid(conn, a.id, a.matchId, a.letter);
   tryPlayWord(conn);
+}
+
+// A thrown error inside a timer or SDK callback would otherwise crash the process
+// mid-tournament with nobody to restart it. Log and keep playing.
+function safely(what: string, fn: () => void) {
+  try { fn(); } catch (err) {
+    console.error(`[${BOT_NAME}] ${what} threw: ${err instanceof Error ? err.stack ?? err.message : err}`);
+  }
 }
 
 function main() {
@@ -334,20 +394,35 @@ function main() {
     .withDatabaseName(DB_NAME)
     .withToken(token)
     .onConnect(onConnect)
-    .onConnectError((_ctx: ErrorContext, err: Error) =>
-      console.error("connect error:", err.message),
-    )
-    .onDisconnect(() => {
-      if (activityTimer) clearInterval(activityTimer);
-      wordInFlight.clear();
-      if (!stopping) {
-        const delay = Math.min(30000, 1000 * 2 ** reconnectAttempt++);
-        console.log(`[${BOT_NAME}] disconnected; retrying in ${delay} ms`);
-        setTimeout(main, delay);
-      }
+    .onConnectError((_ctx: ErrorContext, err: Error) => {
+      // Without automatic reconnect the SDK reports a failed (re)connect attempt
+      // only here, never via onDisconnect, so we must retry from here too or a
+      // single failed reconnect leaves the bot offline for the rest of the event.
+      console.error("connect error:", err.message);
+      scheduleReconnect("connect failed");
     })
+    .onDisconnect(() => scheduleReconnect("disconnected"))
     .build();
 }
+
+let reconnectTimer: ReturnType<typeof setTimeout> | undefined;
+function scheduleReconnect(why: string) {
+  if (activityTimer) clearInterval(activityTimer);
+  activityTimer = undefined;
+  activeConnection = undefined;
+  wordInFlight.clear();
+  if (stopping || reconnectTimer) return;
+  const delay = Math.min(30000, 1000 * 2 ** Math.min(reconnectAttempt++, 5));
+  console.log(`[${BOT_NAME}] ${why}; retrying in ${delay} ms`);
+  reconnectTimer = setTimeout(() => { reconnectTimer = undefined; main(); }, delay);
+}
+
+process.on("unhandledRejection", (err) => {
+  console.error(`[${BOT_NAME}] unhandled rejection: ${err instanceof Error ? err.message : err}`);
+});
+process.on("uncaughtException", (err) => {
+  console.error(`[${BOT_NAME}] uncaught exception: ${err.stack ?? err.message}`);
+});
 
 process.on("SIGINT", () => { stopping = true; if (activityTimer) clearInterval(activityTimer); activeConnection?.disconnect(); process.exit(0); });
 main();

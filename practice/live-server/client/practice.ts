@@ -396,7 +396,7 @@ try {
         {
           env: {
             ...process.env,
-            STDB_HOST: HOST,
+            STDB_HOST: process.env.PRACTICE_ADAPTER_HOST ?? HOST,
             STDB_DB: DB,
             BOT_NAME: "baseline",
             BOT_TOKEN: bots[0].connection.token,
