@@ -147,3 +147,30 @@ cd ../../practice/live-server
 PRACTICE_PORT=3311 PRACTICE_ADAPTER=1 PRACTICE_ADAPTER_ENTRY=$PWD/../../bot-starter/src/index.ts BOT_POLICY=pacer npm run test:live
 PRACTICE_ADAPTER_RESTART_MS=30000 ...   # adds a SIGKILL + same-token restart mid-match
 ```
+
+## Update 22:00: hardened adapter, live price data, small tables
+
+- **Adapter hardening, merged from branch `live-hardening`:**
+  - Every lookup in the SDK client cache scans the whole table, and the hosted database holds about 28k matches and about 1.9M auction results. The fix keeps our own per-match lookup maps.
+  - It subscribes only to the tables the adapter reads.
+  - It retries after a failed reconnect.
+  - The bid cutoff is now based on measured round-trip time.
+  - Callbacks no longer crash the process on an exception.
+- **LOCAL-SERVER checks of the merged code:**
+  - Through a loopback proxy adding 200 ms round-trip delay: placed 2nd (110 points), 66 bids, 7 words, 1 expected "Auction closed" on auction 1.
+  - With SIGKILL at 25 s and restart: placed 1st (140 points), 0 failures.
+  - Logs are in `live-evidence/h1lat` and `live-evidence/h2r`.
+- **LIVE OBSERVATIONAL data** (anonymous read-only SQL on maincloud; 500 most recent all-real 6-seat matches):
+  - Everything played live so far is Vickrey.
+  - Median price paid, A..Z: `[11,16,17,14,11,20,13,21,10,29,24,11,17,10,10,16,25,11,12,10,10,17,19,32,21,38]`. This is essentially the pacer's prior table.
+  - Prices are flat across the match.
+  - Mean score by place 1..6: 113, 92, 79, 67, 53, 31.
+  - The previous tournament (#1) was Vickrey with match_size 6 (tables of 6–7), then an elimination ladder (tables of 6, 5, 4, 3) and a heads-up final of 3 games.
+- **SIM, small tables** (live-heldout pool, Vickrey, deals 80000–80099 × 2), mean place: F0.7-k1 vs challenger vs baseline
+  - 2 seats: 1.15, 1.12, 1.88
+  - 3 seats: 1.38, 1.30, 2.33
+  - 4 seats: 1.51, 1.50, 2.96
+  - The pacer is level with the challenger here and far ahead of the baseline.
+- **Not merged into this branch:**
+  - `firstprice-tune` recommends keeping the current first-price params; no finalist passed on held-out data.
+  - `fidelity-opponents` (hand-ported exzell and Nigel) is measurement only. The pacer still ranks first against the ports, but it leaves 38–58 cash unspent and loses common letters by about 2–3 coins.
