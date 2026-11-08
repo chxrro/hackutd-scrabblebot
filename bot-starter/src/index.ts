@@ -251,7 +251,7 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
   saveToken(token);
   console.log(`[${BOT_NAME}] connected as ${identity.toHexString()}`);
 
-  conn
+  const sub = conn
     .subscriptionBuilder()
     .onApplied(() => {
       console.log(`[${BOT_NAME}] subscription applied`);
@@ -269,7 +269,17 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
       );
       bootstrapActivity(conn);
     })
-    .subscribeToAllTables();
+    .onError((ctx) => {
+      console.error(`[${BOT_NAME}] subscription error: ${(ctx as { event?: unknown }).event ?? "unknown"}`);
+      // Never sit idle on a rejected subscription: reconnect and subscribe to everything.
+      if (!subscribeAll) { subscribeAll = true; conn.disconnect(); }
+    });
+  // Only the tables the adapter reads. subscribeToAllTables (same SQL, generated from the
+  // same bindings) also pulls every historical word_play / auction_top_bid_archive /
+  // rating_history row plus spectator views, which on the hosted DB roughly doubles the
+  // initial sync and each reconnect. SUBSCRIBE_ALL=1 restores the old behaviour.
+  if (subscribeAll) sub.subscribeToAllTables();
+  else sub.subscribe(SUBSCRIBED_TABLES.map((t) => `SELECT * FROM ${t}`));
 
   conn.db.matchState.onInsert((_ctx, m) => indexMatch(m));
   conn.db.matchState.onDelete((_ctx, m) => { matchesById.delete(String(m.id)); });
@@ -278,7 +288,7 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
   conn.db.matchParticipant.onInsert((_ctx, p) => indexParticipant(p));
   conn.db.matchParticipant.onUpdate((_ctx, _old, p) => indexParticipant(p));
   conn.db.matchParticipant.onDelete((_ctx, p) => {
-    if (myBotId !== null && p.botId === myBotId && myParticipants.get(String(p.matchId))?.id === p.id) myParticipants.delete(String(p.matchId));
+    if (myBotId !== null && p.botId === myBotId && myParticipants.get(String(p.matchId)) === p) myParticipants.delete(String(p.matchId));
   });
   conn.db.auction.onInsert((_ctx: EventContext, a) => {
     indexAuction(a);
@@ -404,6 +414,12 @@ function main() {
     .onDisconnect(() => scheduleReconnect("disconnected"))
     .build();
 }
+
+let subscribeAll = process.env.SUBSCRIBE_ALL === "1";
+const SUBSCRIBED_TABLES = [
+  "bot_credential", "bot", "match_state", "match_participant",
+  "auction", "auction_result", "my_rack", "lobby", "lobby_member",
+];
 
 let reconnectTimer: ReturnType<typeof setTimeout> | undefined;
 function scheduleReconnect(why: string) {
