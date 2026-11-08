@@ -1,0 +1,12 @@
+pool=live-tune auction=Vickrey deals=10000..10079 (80 unique) seats/deal=2 games/candidate=160 wall=20.2s
+calibration (field in challenger games): opp mean score 60.2, opp tiles 11.1, opp spent 117, median paid common 9 other 13, seats 6
+cand                  win%   place  swissPts score  oppBest unspent spent tiles strand illegal bidP99ms
+challenger             25.0  2.61    3.39    83.2  104.6    56.0 127.2  11.0   1.2     0   4.13
+l-M1-F0-k0             26.9  2.69    3.31    83.8  107.8    70.3 113.4  10.2   1.0     0   3.45
+l-M1.3-F0-k0           29.4  2.24    3.76    85.6  103.7    25.2 160.4  13.2   0.9     0   2.92
+c-M1-F0-k0             25.0  2.61    3.39    83.2  104.6    56.0 127.2  11.0   1.2     0   0.01
+c-M1.3-F0-k0           20.0  2.56    3.44    79.9  108.4    37.0 143.0  11.6   1.1     0   3.61
+  l-M1-F0-k0 - challenger: score 0.6 [-4.2, 5.7]  place 0.08 [-0.14, 0.31]  win 1.9pp [-5.0, 9.4]
+  l-M1.3-F0-k0 - challenger: score 2.5 [-2.1, 7.0]  place -0.37 [-0.56, -0.18]  win 4.4pp [-3.8, 11.9]
+  c-M1-F0-k0 - challenger: score 0.0 [0.0, 0.0]  place 0.00 [0.00, 0.00]  win 0.0pp [0.0, 0.0]
+  c-M1.3-F0-k0 - challenger: score -3.2 [-8.6, 1.7]  place -0.05 [-0.28, 0.21]  win -5.0pp [-13.8, 3.1]

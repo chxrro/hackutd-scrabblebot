@@ -1,0 +1,10 @@
+miss=0 pool=live-heldout auction=FirstPrice deals=50000..50099 (100 unique) seats/deal=2 games/candidate=200 wall=26.4s
+calibration (field in l-M1-F0.7-k1 games): opp mean score 61.1, opp tiles 9.9, opp spent 119, median paid common 9 other 14, seats 6
+cand                  win%   place  swissPts score  oppBest unspent spent tiles strand illegal bidP99ms
+l-M1-F0.7-k1           45.0  1.94    4.07    91.2   94.5     9.2 182.0  17.2   0.8     0   1.95
+l-M1-F0.5-k1           49.5  1.80    4.20    95.5   96.6    19.4 176.1  16.2   0.4     0   1.68
+challenger             19.0  3.64    2.36    67.0  102.7    87.6  79.4   8.7   0.4     0   2.25
+baseline                0.5  5.24    0.77    39.1  110.6   109.5  29.7   3.0   0.1     0   1.31
+  l-M1-F0.5-k1 - l-M1-F0.7-k1: score 4.3 [2.3, 6.2]  place -0.14 [-0.27, -0.01]  win 4.5pp [-2.5, 11.5]
+  challenger - l-M1-F0.7-k1: score -24.2 [-27.7, -20.6]  place 1.71 [1.46, 1.95]  win -26.0pp [-34.0, -19.0]
+  baseline - l-M1-F0.7-k1: score -52.1 [-54.5, -49.5]  place 3.30 [3.13, 3.46]  win -44.5pp [-51.0, -38.0]

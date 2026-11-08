@@ -1,0 +1,10 @@
+miss=0 pool=exzell auction=Vickrey deals=50000..50099 (100 unique) seats/deal=2 games/candidate=200 wall=13.5s
+calibration (field in l-M1-F0.7-k1 games): opp mean score 61.5, opp tiles 11.0, opp spent 158, median paid common 12 other 17, seats 6
+cand                  win%   place  swissPts score  oppBest unspent spent tiles strand illegal bidP99ms
+l-M1-F0.7-k1           45.0  2.29    3.71    76.5   80.6    34.4 142.1  12.2   0.6     0   2.16
+l-M1-F0.5-k1           48.5  2.23    3.77    77.5   81.2    51.3 126.3  11.1   0.5     0   1.43
+challenger             17.0  3.95    2.05    56.4   83.5    84.8  71.5   6.8   0.8     0   1.69
+baseline                0.5  5.46    0.54    37.1   90.3   109.8  27.3   3.1   0.3     0   1.37
+  l-M1-F0.5-k1 - l-M1-F0.7-k1: score 1.0 [-0.8, 2.8]  place -0.06 [-0.25, 0.14]  win 3.5pp [-3.0, 10.0]
+  challenger - l-M1-F0.7-k1: score -20.2 [-22.9, -17.3]  place 1.66 [1.38, 1.94]  win -28.0pp [-35.5, -20.5]
+  baseline - l-M1-F0.7-k1: score -39.4 [-41.8, -36.9]  place 3.17 [2.94, 3.41]  win -44.5pp [-51.5, -38.0]

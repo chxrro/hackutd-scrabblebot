@@ -10,7 +10,8 @@ import {
 import { Identity } from "spacetimedb";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { chooseWord, decideBid, prepareDictionary, wordReward } from "./strategy.js";
+import { wordReward } from "./strategy.js";
+import { newMatchPolicy, policyName, prepare, type MatchPolicy } from "./policy.js";
 import { fileURLToPath } from "node:url";
 
 const HOST = process.env.STDB_HOST ?? "https://maincloud.spacetimedb.com";
@@ -52,12 +53,27 @@ const DICTIONARY: string[] = fs.existsSync(dictionaryPath)
   : [];
 DICTIONARY.sort((a, b) => b.length - a.length);
 if (DICTIONARY.length < 100000) throw new Error("Missing or incomplete ENABLE dictionary");
-prepareDictionary(DICTIONARY);
-console.log(`[${BOT_NAME}] indexed ${DICTIONARY.length} dictionary words`);
+prepare(DICTIONARY);
+const POLICY = policyName();
+console.log(`[${BOT_NAME}] indexed ${DICTIONARY.length} dictionary words; policy=${POLICY}`);
+// One policy per match (the pacer tracks public clearing prices for its match).
+const policies = new Map<string, MatchPolicy>();
+function policyFor(matchId: bigint): MatchPolicy {
+  const key = String(matchId);
+  let p = policies.get(key);
+  if (!p) { p = newMatchPolicy(POLICY); policies.set(key, p); }
+  return p;
+}
+function inMatch(conn: DbConnection, matchId: bigint): boolean {
+  if (myBotId === null) return false;
+  for (const p of conn.db.matchParticipant.iter()) if (p.matchId === matchId && p.botId === myBotId) return true;
+  return false;
+}
 
 let myIdentity: Identity | null = null;
 let myBotId: bigint | null = null;
 const bidsByAuction = new Set<string>();
+const firstSeenMs = new Map<string, number>();
 const lastWordAttemptByMatch = new Map<string, number>();
 const WORD_RETRY_MS = 120;
 const wordInFlight = new Set<string>();
@@ -123,8 +139,14 @@ function tryBid(
   const match = conn.db.matchState.id.find(matchId);
   if (!match || match.status.tag !== "Running") return;
   const auction = conn.db.auction.id.find(auctionId);
-  if (!auction || auction.closesAt.microsSinceUnixEpoch <= BigInt(Date.now() + 100) * 1000n) return;
-  const amount = decideBid({
+  if (!auction) return;
+  // Deadline check on our own clock, measured from when we first saw the auction, so a
+  // skewed local clock cannot make us skip every bid (server and local clocks differ).
+  const key0 = String(auctionId);
+  if (!firstSeenMs.has(key0)) firstSeenMs.set(key0, Date.now());
+  const windowMs = Number(auction.closesAt.microsSinceUnixEpoch - auction.opensAt.microsSinceUnixEpoch) / 1000;
+  if (Date.now() > firstSeenMs.get(key0)! + windowMs - 100) return;
+  const amount = policyFor(matchId).decideBid({
     letter,
     myBalance: participant.balance,
     myRack: rackForMatch(conn, matchId),
@@ -157,12 +179,13 @@ function tryPlayWord(conn: DbConnection) {
     const key = String(matchId);
     if (wordInFlight.has(key) || now - (lastWordAttemptByMatch.get(key) ?? 0) < WORD_RETRY_MS) continue;
     lastWordAttemptByMatch.set(key, now);
-    const word = chooseWord({
+    const word = policyFor(matchId).chooseWord({
       myRack: rackForMatch(conn, matchId),
       dictionary: DICTIONARY,
       myBalance: participantForMatch(conn, matchId)?.balance,
       bagRemaining: conn.db.matchState.id.find(matchId)?.bagTotal,
-    });
+      auctionType: conn.db.matchState.id.find(matchId)?.auctionType.tag,
+    } as Parameters<MatchPolicy["chooseWord"]>[0]);
     if (!word) continue;
     console.log(`[${BOT_NAME}] match ${matchId}: playing '${word}' for ${wordReward(word)} points`);
     wordInFlight.add(key);
@@ -200,7 +223,11 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
     .subscribeToAllTables();
 
   conn.db.auction.onInsert((_ctx: EventContext, a) => {
-    if (a.status.tag === "Open") setImmediate(() => { tryPlayWord(conn); tryBid(conn, a.id, a.matchId, a.letter); });
+    if (a.status.tag === "Open") {
+      if (!firstSeenMs.has(String(a.id))) firstSeenMs.set(String(a.id), Date.now());
+      if (firstSeenMs.size > 5000) firstSeenMs.clear();
+      setImmediate(() => { tryPlayWord(conn); tryBid(conn, a.id, a.matchId, a.letter); });
+    }
   });
   // Defer until the full subscription transaction has applied.
   const queueWords = () => setImmediate(() => tryPlayWord(conn));
@@ -212,6 +239,9 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
   });
   conn.db.auctionResult.onInsert((_ctx, r) => {
     if (myBotId === null) return;
+    if (!inMatch(conn, r.matchId)) return;
+    // Public clearing price for the pacer; deduplicated by auction id (safe on reconnect replays).
+    policyFor(r.matchId).observe(String(r.auctionId), r.letter, r.winnerBotId !== undefined && r.winnerBotId !== null, Number(r.paid));
     const winner =
       r.winnerBotId !== undefined && r.winnerBotId !== null
         ? String(r.winnerBotId)
@@ -232,6 +262,7 @@ function onConnect(conn: DbConnection, identity: Identity, token: string) {
         for (const key of bidsByAuction) if (key.startsWith(`${neu.id}:`)) bidsByAuction.delete(key);
         lastWordAttemptByMatch.delete(String(neu.id));
         wordInFlight.delete(String(neu.id));
+        policies.delete(String(neu.id));
         console.log(`[${BOT_NAME}] match ${neu.id} ended; rejoining lobby`);
         joinLobby(conn);
       }
@@ -262,6 +293,11 @@ function joinLobby(conn: DbConnection) {
 
 function bootstrapActivity(conn: DbConnection) {
   if (activityTimer) clearInterval(activityTimer);
+  // Replay public results of running matches we are in (initial rows arrive before myBotId is known).
+  for (const r of conn.db.auctionResult.iter()) {
+    if (conn.db.matchState.id.find(r.matchId)?.status.tag !== "Running" || !inMatch(conn, r.matchId)) continue;
+    policyFor(r.matchId).observe(String(r.auctionId), r.letter, r.winnerBotId !== undefined && r.winnerBotId !== null, Number(r.paid));
+  }
   activityTimer = setInterval(() => {
     // Re-evaluate even if our rack did not change: the bag is approaching zero.
     tryPlayWord(conn);

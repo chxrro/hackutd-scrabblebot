@@ -1,0 +1,110 @@
+{
+  "kind": "real SpacetimeDB integration",
+  "serverVersion": "2.14.1",
+  "upstreamCommit": "b5ccb36aa238ad16692f8d6af54da15ef9f11324",
+  "started": "2026-11-08T03:23:33.940Z",
+  "completed": "2026-11-08T03:24:42.264Z",
+  "dictionaryWords": 172820,
+  "checks": [
+    "Anonymous observer sees no private rack",
+    "Direct subscription to private Holding table denied",
+    "Six real WebSocket clients registered and received private five-tile racks",
+    "Disconnect/reconnect retained identity and restored subscriptions using memory-only token",
+    "Adapter SIGKILLed at 30000 ms and restarted with the same token",
+    "Official scheduler completed full match; legal bids and words committed; post-end actions rejected",
+    "Adapter /Users/hermes/.t3/scratch/2026-11-08-copy-and-paste-this-to-057198c5/ours/bot-starter/src/index.ts (BOT_POLICY=pacer) connected, subscribed, bid, played words, and exited cleanly on SIGINT",
+    "Standalone server stopped cleanly after client close handshakes"
+  ],
+  "rejected": [
+    {
+      "test": "uncredentialed lobby entry",
+      "message": "Your identity is not a credential for any bot"
+    },
+    {
+      "test": "negative bid",
+      "message": "Bid must be non-negative"
+    },
+    {
+      "test": "over-budget bid",
+      "message": "Insufficient balance"
+    },
+    {
+      "test": "one-letter word",
+      "message": "Word must be at least 2 letters"
+    },
+    {
+      "test": "non-ASCII word",
+      "message": "Word must be A-Z only"
+    },
+    {
+      "test": "valid word requiring unavailable tiles",
+      "message": "Not enough 'J': need 1, have 0"
+    },
+    {
+      "test": "word after final shutdown",
+      "message": "Match not running"
+    },
+    {
+      "test": "bid against closed auction",
+      "message": "Auction closed"
+    }
+  ],
+  "actions": {
+    "bids": 294,
+    "words": 12,
+    "unexpectedErrors": []
+  },
+  "matches": [
+    {
+      "id": "1",
+      "rounds": 68,
+      "bagRemaining": 0,
+      "auctionType": "Vickrey",
+      "players": [
+        {
+          "botId": "12",
+          "name": "opponent-5",
+          "score": 35,
+          "balance": 86
+        },
+        {
+          "botId": "7",
+          "name": "baseline",
+          "score": 87,
+          "balance": 12
+        },
+        {
+          "botId": "8",
+          "name": "opponent-1",
+          "score": 123,
+          "balance": 69
+        },
+        {
+          "botId": "9",
+          "name": "opponent-2",
+          "score": 90,
+          "balance": 102
+        },
+        {
+          "botId": "10",
+          "name": "opponent-3",
+          "score": 44,
+          "balance": 124
+        },
+        {
+          "botId": "11",
+          "name": "opponent-4",
+          "score": 61,
+          "balance": 74
+        }
+      ]
+    }
+  ],
+  "reconnections": 1,
+  "latencySummaryMs": {
+    "n": 306,
+    "p50": 1.580708000001323,
+    "p95": 4.911457999999584,
+    "max": 14.096541999999317
+  }
+}

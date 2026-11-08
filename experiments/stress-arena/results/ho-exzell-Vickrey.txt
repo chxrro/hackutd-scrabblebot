@@ -1,0 +1,18 @@
+pool=exzell auction=Vickrey deals=30000..30119 (120 unique) seats/deal=2 games/candidate=240 wall=36.3s
+calibration (field in l-M1-F0.5-k1 games): opp mean score 61.5, opp tiles 11.2, opp spent 158, median paid common 12 other 17, seats 6
+cand                  win%   place  swissPts score  oppBest unspent spent tiles strand illegal bidP99ms
+l-M1-F0.5-k1           43.3  2.30    3.70    76.0   81.6    50.9 125.1  10.9   0.6     0   5.02
+l-M1-F0.7-k1           43.8  2.18    3.82    76.5   80.6    33.7 142.8  12.2   0.6     0   2.76
+baseline                1.3  5.45    0.55    38.5   87.2   110.1  28.5   3.5   0.3     0   3.08
+baseline-x1.5           6.7  4.68    1.32    48.7   86.2    90.0  58.7   5.4   0.4     0   1.83
+learned                16.3  4.07    1.93    56.5   83.6   100.9  55.6   6.2   0.7     0   3.07
+challenger             16.7  3.91    2.09    55.9   83.5    82.8  73.2   7.0   0.9     0   3.71
+l-M1-F0-k1             39.6  2.45    3.55    74.2   82.0    61.0 113.2  10.1   0.6     0   0.84
+l-M1.3-F0-k0           25.4  2.89    3.11    68.0   81.9    59.6 108.4   8.5   0.7     0   2.66
+  l-M1-F0.7-k1 - l-M1-F0.5-k1: score 0.5 [-1.3, 2.3]  place -0.12 [-0.28, 0.05]  win 0.4pp [-5.8, 6.7]
+  baseline - l-M1-F0.5-k1: score -37.5 [-39.4, -35.5]  place 3.15 [2.94, 3.35]  win -42.1pp [-48.8, -35.4]
+  baseline-x1.5 - l-M1-F0.5-k1: score -27.3 [-29.5, -25.0]  place 2.38 [2.16, 2.61]  win -36.7pp [-43.3, -30.4]
+  learned - l-M1-F0.5-k1: score -19.5 [-21.5, -17.4]  place 1.77 [1.53, 2.00]  win -27.1pp [-33.3, -21.3]
+  challenger - l-M1-F0.5-k1: score -20.1 [-22.2, -17.9]  place 1.61 [1.37, 1.84]  win -26.7pp [-33.3, -20.0]
+  l-M1-F0-k1 - l-M1-F0.5-k1: score -1.8 [-2.8, -0.8]  place 0.15 [0.06, 0.25]  win -3.8pp [-7.5, -0.4]
+  l-M1.3-F0-k0 - l-M1-F0.5-k1: score -8.0 [-10.2, -5.7]  place 0.59 [0.37, 0.81]  win -17.9pp [-25.4, -10.8]

@@ -3,6 +3,16 @@
 A tested, local TypeScript bot based on the official Clockwork Labs starter.
 It is not connected to the live service and has not registered for a tournament.
 
+## Live policy (2026-11-07 update)
+
+`npm start` now uses `BOT_POLICY=pacer` by default. This is the frozen learned policy plus a market floor (0.7 × public clearing price) and spend-down pacing; see `src/pacer.ts` and `src/policy.ts`. The original strategy is still available unchanged:
+
+```bash
+BOT_POLICY=baseline npm start   # fallback: the preserved original strategy.ts
+```
+
+The evidence is in `../experiments/stress-arena/RESULTS.md`. It has two labelled parts: offline simulation against held-out opponents and deals, and 11 games against the real official server on loopback. In both, the old default ended matches with about 100 unspent cash and placed near last against stronger fields.
+
 ## Run the offline demo first
 
 Requires Node.js 20.11+ (Node 22 or 24 recommended) and npm. No account, API key,

@@ -389,28 +389,43 @@ try {
   }
   if (process.env.PRACTICE_ADAPTER === "1") {
     bots[0].enabled = false;
-    adapter = spawn(
-      process.execPath,
-      ["--import", "tsx", "bot-starter/src/index.ts"],
-      {
-        env: {
-          ...process.env,
-          STDB_HOST: HOST,
-          STDB_DB: DB,
-          BOT_NAME: "baseline",
-          BOT_TOKEN: bots[0].connection.token,
-          SAVE_BOT_TOKEN: "0",
-          AUTO_JOIN_LOBBY: "0",
-          BOT_TOKEN_FILE: "/nonexistent/practice-token",
+    const spawnAdapter = () => {
+      const child = spawn(
+        process.execPath,
+        ["--import", "tsx", process.env.PRACTICE_ADAPTER_ENTRY ?? "bot-starter/src/index.ts"],
+        {
+          env: {
+            ...process.env,
+            STDB_HOST: HOST,
+            STDB_DB: DB,
+            BOT_NAME: "baseline",
+            BOT_TOKEN: bots[0].connection.token,
+            SAVE_BOT_TOKEN: "0",
+            AUTO_JOIN_LOBBY: "0",
+            BOT_TOKEN_FILE: "/nonexistent/practice-token",
+          },
+          stdio: ["ignore", "pipe", "pipe"],
         },
-        stdio: ["ignore", "pipe", "pipe"],
-      },
-    );
-    adapter.stdout?.on("data", (d) => (adapterLog += String(d)));
-    adapter.stderr?.on("data", (d) => (adapterLog += String(d)));
-    adapterExit = new Promise((resolve) =>
-      adapter!.on("exit", (code) => resolve(code)),
-    );
+      );
+      child.stdout?.on("data", (d) => (adapterLog += String(d)));
+      child.stderr?.on("data", (d) => (adapterLog += String(d)));
+      return child;
+    };
+    adapter = spawnAdapter();
+    adapterExit = new Promise((resolve) => adapter!.on("exit", (code) => resolve(code)));
+    // Optional crash/restart test: SIGKILL the adapter mid-match, restart it with the same token.
+    const restartMs = Number(process.env.PRACTICE_ADAPTER_RESTART_MS ?? 0);
+    if (restartMs > 0) {
+      setTimeout(() => {
+        adapterLog += "\n[harness] SIGKILL adapter mid-match; restarting with same token\n";
+        adapter!.kill("SIGKILL");
+        setTimeout(() => {
+          adapter = spawnAdapter();
+          adapterExit = new Promise((resolve) => adapter!.on("exit", (code) => resolve(code)));
+          report.checks.push(`Adapter SIGKILLed at ${restartMs} ms and restarted with the same token`);
+        }, 500);
+      }, restartMs);
+    }
   }
 
   report.checks.push(
@@ -485,7 +500,9 @@ try {
           assert.ok(/playing '/.test(adapterLog));
           writeFileSync("reports/baseline-adapter.log", adapterLog);
           report.checks.push(
-            "Byte-identical original live adapter connected, subscribed, bid, played words, and exited cleanly on SIGINT",
+            process.env.PRACTICE_ADAPTER_ENTRY
+              ? `Adapter ${process.env.PRACTICE_ADAPTER_ENTRY} (BOT_POLICY=${process.env.BOT_POLICY ?? "pacer"}) connected, subscribed, bid, played words, and exited cleanly on SIGINT`
+              : "Byte-identical original live adapter connected, subscribed, bid, played words, and exited cleanly on SIGINT",
           );
           save();
         }
